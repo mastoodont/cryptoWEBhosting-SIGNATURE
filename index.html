@@ -186,9 +186,140 @@
 
   <!-- HERO -->
   <section class="hero" id="home" aria-labelledby="hero-heading">
-    <!-- keep hero image (falls back to inline SVG if missing) -->
-    <img class="hero-photo" src="C:\Users\Dell\Pictures\Saved Pictures\Signature.jpg" alt="Close-up of fountain pen and handwritten signature"
-         onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;1200&quot; height=&quot;600&quot;><rect width=&quot;100%&quot; height=&quot;100%&quot; fill=%230b2440/><text x=&quot;50%&quot; y=&quot;50%&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=%23fff font-size=&quot;28&quot; font-family=&quot;Arial&quot;>Image not available</text></svg>'">
+    <!-- Hero background: inline SVG illustration — works everywhere, no local files needed -->
+    <svg class="hero-photo" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs>
+        <linearGradient id="heroBg" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#071a3e"/>
+          <stop offset="100%" stop-color="#0d2b5a"/>
+        </linearGradient>
+        <linearGradient id="paperGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#f8f4ec"/>
+          <stop offset="100%" stop-color="#ede8dc"/>
+        </linearGradient>
+        <linearGradient id="penGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#2c2c2c"/>
+          <stop offset="100%" stop-color="#111"/>
+        </linearGradient>
+        <linearGradient id="goldPen" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#ffeaa7"/>
+          <stop offset="100%" stop-color="#d4af37"/>
+        </linearGradient>
+        <filter id="softShadow" x="-10%" y="-10%" width="130%" height="130%">
+          <feDropShadow dx="4" dy="8" stdDeviation="12" flood-color="rgba(0,0,0,0.5)"/>
+        </filter>
+        <filter id="glow">
+          <feGaussianBlur stdDeviation="3" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+
+      <!-- Background -->
+      <rect width="1200" height="600" fill="url(#heroBg)"/>
+
+      <!-- Subtle grid lines -->
+      <g stroke="rgba(255,255,255,0.03)" stroke-width="1">
+        <line x1="0" y1="100" x2="1200" y2="100"/>
+        <line x1="0" y1="200" x2="1200" y2="200"/>
+        <line x1="0" y1="300" x2="1200" y2="300"/>
+        <line x1="0" y1="400" x2="1200" y2="400"/>
+        <line x1="0" y1="500" x2="1200" y2="500"/>
+        <line x1="200" y1="0" x2="200" y2="600"/>
+        <line x1="400" y1="0" x2="400" y2="600"/>
+        <line x1="600" y1="0" x2="600" y2="600"/>
+        <line x1="800" y1="0" x2="800" y2="600"/>
+        <line x1="1000" y1="0" x2="1000" y2="600"/>
+      </g>
+
+      <!-- Glowing orbs in background -->
+      <circle cx="950" cy="150" r="200" fill="rgba(212,175,55,0.04)"/>
+      <circle cx="200" cy="450" r="160" fill="rgba(96,165,250,0.04)"/>
+
+      <!-- Document / paper sheet -->
+      <rect x="320" y="80" width="560" height="420" rx="6" fill="url(#paperGrad)" filter="url(#softShadow)"/>
+
+      <!-- Paper lines -->
+      <g stroke="#c8bfa8" stroke-width="0.8" opacity="0.5">
+        <line x1="360" y1="170" x2="840" y2="170"/>
+        <line x1="360" y1="200" x2="840" y2="200"/>
+        <line x1="360" y1="230" x2="840" y2="230"/>
+        <line x1="360" y1="260" x2="840" y2="260"/>
+        <line x1="360" y1="290" x2="840" y2="290"/>
+        <line x1="360" y1="320" x2="840" y2="320"/>
+        <line x1="360" y1="350" x2="840" y2="350"/>
+      </g>
+
+      <!-- Simulated typed text lines on paper -->
+      <g fill="#9a8c78" opacity="0.6" font-family="monospace" font-size="11">
+        <rect x="360" y="162" width="280" height="7" rx="2"/>
+        <rect x="360" y="192" width="340" height="7" rx="2"/>
+        <rect x="360" y="222" width="300" height="7" rx="2"/>
+        <rect x="360" y="252" width="320" height="7" rx="2"/>
+        <rect x="360" y="282" width="260" height="7" rx="2"/>
+        <rect x="360" y="312" width="310" height="7" rx="2"/>
+      </g>
+
+      <!-- Signature line label -->
+      <text x="370" y="398" font-family="Arial, sans-serif" font-size="10" fill="#9a8c78">Signature: ___________________________</text>
+      <line x1="450" y1="395" x2="780" y2="395" stroke="#9a8c78" stroke-width="0.8"/>
+
+      <!-- Handwritten signature SVG path (stylised cursive) -->
+      <g filter="url(#glow)">
+        <path d="M 460 420 C 470 400, 490 390, 510 405 C 530 420, 520 440, 540 430 C 555 422, 560 408, 575 415 C 590 422, 588 440, 605 432 C 618 426, 625 410, 645 418 C 660 425, 658 445, 675 438 C 690 432, 695 418, 715 422 C 730 426, 728 442, 745 436"
+              stroke="#1a1a2e" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M 462 428 C 475 445, 495 450, 505 440 C 512 433, 508 422, 520 418"
+              stroke="#1a1a2e" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        <path d="M 748 435 C 760 430, 768 438, 762 445 C 756 452, 745 448, 748 440"
+              stroke="#1a1a2e" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+      </g>
+
+      <!-- Fountain pen body -->
+      <g transform="translate(760, 370) rotate(-35)">
+        <!-- Pen barrel -->
+        <rect x="-10" y="-90" width="20" height="130" rx="10" fill="url(#penGrad)"/>
+        <!-- Gold clip -->
+        <rect x="7" y="-85" width="4" height="100" rx="2" fill="url(#goldPen)"/>
+        <!-- Gold nib section -->
+        <rect x="-10" y="40" width="20" height="28" rx="4" fill="url(#goldPen)"/>
+        <!-- Nib tip -->
+        <polygon points="0,75 -6,50 6,50" fill="#b8972e"/>
+        <!-- Pen cap ring -->
+        <rect x="-10" y="-10" width="20" height="8" rx="2" fill="url(#goldPen)"/>
+        <!-- Ink window -->
+        <rect x="-4" y="10" width="8" height="20" rx="3" fill="rgba(30,80,160,0.6)"/>
+      </g>
+
+      <!-- Ink dot near nib -->
+      <circle cx="784" cy="438" r="2.5" fill="rgba(20,40,100,0.7)"/>
+
+      <!-- Scan/analysis overlay hint — corner brackets -->
+      <g stroke="#d4af37" stroke-width="1.5" fill="none" opacity="0.5">
+        <path d="M 330 90 L 330 110 L 350 110"/>
+        <path d="M 870 90 L 870 110 L 850 110"/>
+        <path d="M 330 490 L 330 470 L 350 470"/>
+        <path d="M 870 490 L 870 470 L 850 470"/>
+      </g>
+
+      <!-- Small AI scan dots -->
+      <g fill="rgba(212,175,55,0.7)">
+        <circle cx="460" cy="420" r="3"/>
+        <circle cx="605" cy="432" r="3"/>
+        <circle cx="745" cy="436" r="3"/>
+      </g>
+
+      <!-- Right side: decorative scan lines -->
+      <g opacity="0.15" stroke="#d4af37" stroke-width="1">
+        <line x1="920" y1="150" x2="1100" y2="150"/>
+        <line x1="940" y1="170" x2="1100" y2="170"/>
+        <line x1="920" y1="190" x2="1080" y2="190"/>
+        <line x1="930" y1="210" x2="1100" y2="210"/>
+        <line x1="920" y1="230" x2="1060" y2="230"/>
+      </g>
+
+      <!-- Left side: subtle vertical accent -->
+      <rect x="100" y="200" width="2" height="200" rx="1" fill="rgba(212,175,55,0.15)"/>
+      <rect x="115" y="240" width="2" height="130" rx="1" fill="rgba(212,175,55,0.08)"/>
+    </svg>
     <div class="hero-content">
       <h1 id="hero-heading">Preliminary AI Screening of Handwritten Signatures</h1>
 
@@ -374,9 +505,84 @@
       <h2>Educational Materials &amp; FAQ</h2>
       <p class="lead">General educational information about signature screening, what automated tools can and cannot detect, and when to seek a certified forensic document examiner. <strong>None of the following constitutes legal advice or an expert conclusion.</strong></p>
 
-      <!-- Inserted user photo (reduced / responsive) with fallback -->
-      <img class="kc-image" src="C:\Users\Dell\Pictures\Saved Pictures\Signature.jpg" alt="Close-up of fountain pen on handwritten document"
-           onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;600&quot; height=&quot;400&quot;><rect width=&quot;100%&quot; height=&quot;100%&quot; fill=%230b2440/><text x=&quot;50%&quot; y=&quot;50%&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; fill=%23fff font-size=&quot;18&quot; font-family=&quot;Arial&quot;>Image not available</text></svg>'">
+      <!-- Inline SVG illustration for Educational Materials section — no local files needed -->
+      <svg class="kc-image" viewBox="0 0 600 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of handwritten signature being examined">
+        <defs>
+          <linearGradient id="kcBg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#071a3e"/>
+            <stop offset="100%" stop-color="#0d2655"/>
+          </linearGradient>
+          <linearGradient id="kcPaper" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#f5f0e8"/>
+            <stop offset="100%" stop-color="#ede6d6"/>
+          </linearGradient>
+          <filter id="kcShadow">
+            <feDropShadow dx="2" dy="5" stdDeviation="8" flood-color="rgba(0,0,0,0.5)"/>
+          </filter>
+        </defs>
+        <rect width="600" height="340" fill="url(#kcBg)"/>
+        <!-- subtle circles -->
+        <circle cx="500" cy="60" r="120" fill="rgba(212,175,55,0.04)"/>
+        <circle cx="80" cy="280" r="90" fill="rgba(96,165,250,0.04)"/>
+        <!-- paper -->
+        <rect x="60" y="40" width="340" height="260" rx="5" fill="url(#kcPaper)" filter="url(#kcShadow)"/>
+        <!-- text lines on paper -->
+        <g fill="#b0a090" opacity="0.55">
+          <rect x="85" y="70"  width="200" height="6" rx="2"/>
+          <rect x="85" y="88"  width="250" height="6" rx="2"/>
+          <rect x="85" y="106" width="220" height="6" rx="2"/>
+          <rect x="85" y="124" width="240" height="6" rx="2"/>
+          <rect x="85" y="142" width="190" height="6" rx="2"/>
+          <rect x="85" y="160" width="230" height="6" rx="2"/>
+        </g>
+        <!-- signature line -->
+        <line x1="85" y1="230" x2="380" y2="230" stroke="#b0a090" stroke-width="0.8"/>
+        <text x="88" y="225" font-family="Arial" font-size="9" fill="#b0a090">Signature:</text>
+        <!-- signature path -->
+        <path d="M 130 245 C 140 228, 158 222, 172 235 C 186 248, 178 262, 195 255 C 208 249, 212 235, 228 242 C 242 249, 240 263, 258 256 C 270 251, 278 237, 295 244 C 308 250, 306 265, 322 258"
+              stroke="#1a1a2e" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <!-- magnifying glass -->
+        <g transform="translate(370, 160)">
+          <circle cx="0" cy="0" r="55" fill="rgba(10,30,70,0.88)" stroke="rgba(212,175,55,0.6)" stroke-width="3"/>
+          <circle cx="0" cy="0" r="48" fill="rgba(240,235,225,0.12)" stroke="none"/>
+          <!-- zoomed signature inside lens -->
+          <path d="M -32 8 C -22 -10, -8 -16, 2 -6 C 12 4, 6 18, 18 12 C 26 8, 30 -4, 42 2"
+                stroke="rgba(212,175,55,0.9)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <!-- lens highlight -->
+          <ellipse cx="-16" cy="-20" rx="12" ry="6" fill="rgba(255,255,255,0.06)" transform="rotate(-30,-16,-20)"/>
+          <!-- handle -->
+          <rect x="38" y="38" width="10" height="48" rx="5" fill="url(#goldPen)" transform="rotate(45,38,38)"/>
+        </g>
+        <!-- AI scan dots on signature -->
+        <g fill="rgba(212,175,55,0.8)">
+          <circle cx="130" cy="245" r="2.5"/>
+          <circle cx="195" cy="255" r="2.5"/>
+          <circle cx="258" cy="256" r="2.5"/>
+          <circle cx="322" cy="258" r="2.5"/>
+        </g>
+        <!-- right panel: analysis results -->
+        <rect x="430" y="50" width="145" height="240" rx="8" fill="rgba(255,255,255,0.05)" stroke="rgba(212,175,55,0.2)" stroke-width="1"/>
+        <text x="447" y="74" font-family="Arial" font-size="10" font-weight="bold" fill="#d4af37">Preliminary Scan</text>
+        <g font-family="Arial" font-size="9" fill="#a8b6c6">
+          <text x="447" y="100">Pattern match</text>
+          <text x="447" y="130">Stroke analysis</text>
+          <text x="447" y="160">Artifact check</text>
+          <text x="447" y="190">Risk indicator</text>
+        </g>
+        <!-- progress bars -->
+        <g>
+          <rect x="447" y="104" width="100" height="5" rx="2" fill="rgba(255,255,255,0.08)"/>
+          <rect x="447" y="104" width="72"  height="5" rx="2" fill="#4ade80"/>
+          <rect x="447" y="134" width="100" height="5" rx="2" fill="rgba(255,255,255,0.08)"/>
+          <rect x="447" y="134" width="55"  height="5" rx="2" fill="#f59e0b"/>
+          <rect x="447" y="164" width="100" height="5" rx="2" fill="rgba(255,255,255,0.08)"/>
+          <rect x="447" y="164" width="88"  height="5" rx="2" fill="#60a5fa"/>
+          <rect x="447" y="194" width="100" height="5" rx="2" fill="rgba(255,255,255,0.08)"/>
+          <rect x="447" y="194" width="35"  height="5" rx="2" fill="#ef4444"/>
+        </g>
+        <text x="447" y="228" font-family="Arial" font-size="8" fill="rgba(212,175,55,0.6)">⚠ Indicative only</text>
+        <text x="447" y="242" font-family="Arial" font-size="8" fill="rgba(212,175,55,0.6)">Seek expert review</text>
+      </svg>
 
       <div class="features-grid" aria-label="Knowledge Center items">
         <article class="card" aria-labelledby="rr1-title">
