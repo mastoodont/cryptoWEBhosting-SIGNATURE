@@ -734,28 +734,40 @@
     .lang-switcher {
       position: relative;
       flex-shrink: 0;
-      margin-left: 12px;
+      margin-left: 14px;
     }
     .lang-btn {
-      background: rgba(255,255,255,0.055);
-      border: 1px solid rgba(201,168,76,0.18);
-      color: var(--text-light);
-      padding: 7px 12px;
+      background: rgba(201,168,76,0.10);
+      border: 1.5px solid rgba(201,168,76,0.35);
+      color: var(--accent-gold-lt);
+      padding: 8px 14px;
       border-radius: var(--radius-sm);
-      font-size: 0.8rem;
+      font-size: 0.84rem;
       font-weight: 600;
       cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 7px;
       white-space: nowrap;
-      transition: background 0.2s, border-color 0.2s, color 0.2s;
+      transition: background 0.2s, border-color 0.2s, color 0.2s, box-shadow 0.2s;
       font-family: 'DM Sans', sans-serif;
       line-height: 1.4;
-      letter-spacing: 0.03em;
+      letter-spacing: 0.04em;
+      box-shadow: 0 2px 8px rgba(201,168,76,0.08);
     }
-    .lang-btn:hover { background: rgba(201,168,76,0.1); border-color: rgba(201,168,76,0.4); color: var(--accent-gold); }
-    .lang-arrow { font-size: 0.6rem; opacity: 0.55; transition: transform 0.22s; display: inline-block; }
+    .lang-btn:hover {
+      background: rgba(201,168,76,0.18);
+      border-color: rgba(201,168,76,0.65);
+      color: var(--accent-gold);
+      box-shadow: 0 4px 16px rgba(201,168,76,0.18);
+    }
+    .lang-btn-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: inherit;
+    }
+    .lang-arrow { font-size: 0.6rem; opacity: 0.7; transition: transform 0.22s; display: inline-block; }
     .lang-switcher.open .lang-arrow { transform: rotate(180deg); }
     .lang-dropdown {
       display: none;
@@ -764,15 +776,26 @@
       right: 0;
       background: rgba(5,17,31,0.97);
       backdrop-filter: blur(16px);
-      border: 1px solid rgba(201,168,76,0.15);
+      border: 1.5px solid rgba(201,168,76,0.22);
       border-radius: var(--radius-sm);
       overflow: hidden;
       z-index: 3000;
-      min-width: 165px;
-      box-shadow: 0 18px 50px rgba(0,0,0,0.6);
+      min-width: 180px;
+      box-shadow: 0 20px 56px rgba(0,0,0,0.65), 0 0 0 1px rgba(201,168,76,0.06);
     }
     .lang-switcher.open .lang-dropdown { display: block; animation: dropIn 0.18s ease; }
     @keyframes dropIn { from { opacity:0; transform:translateY(-8px); } to { opacity:1; transform:translateY(0); } }
+    .lang-dropdown-header {
+      padding: 9px 16px 7px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      opacity: 0.7;
+      border-bottom: 1px solid rgba(201,168,76,0.12);
+      font-family: 'DM Sans', sans-serif;
+    }
     .lang-option {
       display: flex;
       align-items: center;
@@ -789,13 +812,15 @@
     }
     .lang-option:last-child { border-bottom: none; }
     .lang-option:hover { background: rgba(201,168,76,0.1); color: var(--accent-gold-lt); }
-    .lang-option.active { color: var(--accent-gold); font-weight: 600; background: rgba(201,168,76,0.07); }
+    .lang-option.active { color: var(--accent-gold); font-weight: 600; background: rgba(201,168,76,0.08); }
+    .lang-option.active::after { content: '✓'; margin-left: auto; font-size: 0.8rem; color: var(--accent-gold); padding-left: 8px; }
     .lang-option .lang-flag { font-size: 1.1rem; line-height: 1; }
     .lang-native { font-size: 0.78rem; color: var(--text-muted); margin-left: auto; padding-left: 8px; }
+    .lang-option.active .lang-native { display: none; }
 
     @media (max-width: 768px) {
       .lang-switcher { margin-left: 0; }
-      .lang-dropdown { right: auto; left: 0; min-width: 155px; }
+      .lang-dropdown { right: auto; left: 0; min-width: 170px; }
     }
 
     /* ── Footer ────────────────────────────────────────────────── */
@@ -988,17 +1013,18 @@
         <a href="#use-cases" data-i18n="nav_cases">Use Cases</a>
         <a href="#faq" data-i18n="nav_faq">FAQ</a>
         <a href="#contact" data-i18n="nav_contact">Contact</a>
-        <a href="terms.html" data-i18n="nav_terms">Terms</a>
-        <a href="privacy.html" data-i18n="nav_privacy">Privacy</a>
+        <a href="https://privacyterms.io/view/ZZT4xTsc-E0FgtAUS-K8fS2C" target="_blank" rel="noopener" data-i18n="nav_terms">Terms</a>
+        <a href="https://privacyterms.io/view/vp0ucvM8-O833vpkn-RCXmYa" target="_blank" rel="noopener" data-i18n="nav_privacy">Privacy</a>
       </nav>
 
       <div class="lang-switcher" id="langSwitcher">
         <button class="lang-btn" id="langBtn" aria-haspopup="listbox" aria-expanded="false" aria-label="Select language">
           <span id="langCurrentFlag">🇺🇸</span>
-          <span id="langCurrentCode" style="display:none;">EN</span>
+          <span id="langCurrentCode" class="lang-btn-label">EN</span>
           <span class="lang-arrow">▼</span>
         </button>
         <div class="lang-dropdown" id="langDropdown" role="listbox" aria-label="Language selection">
+          <div class="lang-dropdown-header">Language</div>
           <div class="lang-option active" data-lang="en" role="option" tabindex="0">
             <span class="lang-flag">🇺🇸</span>
             <span>English</span>
@@ -1658,8 +1684,8 @@
         </div>
 
         <div class="consent">
-          <label><input type="checkbox" id="terms" name="terms" required> <span data-i18n="chk_terms">I agree to the <a href="terms.html" target="_blank" rel="noopener">Terms of Service</a></span></label>
-          <label><input type="checkbox" id="privacy" name="privacy" required> <span data-i18n="chk_privacy">I have read the <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a></span></label>
+          <label><input type="checkbox" id="terms" name="terms" required> <span data-i18n="chk_terms">I agree to the <a href="https://privacyterms.io/view/ZZT4xTsc-E0FgtAUS-K8fS2C" target="_blank" rel="noopener">Terms of Service</a></span></label>
+          <label><input type="checkbox" id="privacy" name="privacy" required> <span data-i18n="chk_privacy">I have read the <a href="https://privacyterms.io/view/vp0ucvM8-O833vpkn-RCXmYa" target="_blank" rel="noopener">Privacy Policy</a></span></label>
         </div>
 
         <!-- Mandatory disclaimer checkbox -->
@@ -1719,7 +1745,7 @@
 
       <p data-i18n="footer_copy" style="margin-bottom:8px; color:var(--text-muted); font-size:0.9rem;">© 2026 HandAuth Pro — All rights reserved</p>
       <p style="margin-top:12px;">
-        <a href="sample-report.pdf" download class="btn" data-i18n="footer_dl" style="padding:10px 22px; font-size:0.95rem;">Download Sample Overview</a>
+        <a href="https://github.com/mastoodont/graphology/commit/97bd679e37baf9848abd0cc92f8dfd54137c51e3" target="_blank" rel="noopener" class="btn" data-i18n="footer_dl" style="padding:10px 22px; font-size:0.95rem;">Download Sample Overview</a>
       </p>
     </div>
   </footer>
@@ -2068,8 +2094,8 @@
       con_disc_body:'HandAuth Pro provides <strong>preliminary automated screening only</strong>. Results are <strong>indicative and for internal triage purposes only</strong>. They do not constitute expert forensic analysis, are not court-admissible, and are not a substitute for an opinion from a certified forensic document examiner or graphologist.',
       con_lead:'Describe your situation briefly and attach or reference your signature files. We will provide a preliminary overview to help you decide on next steps.',
       lbl_name:'Full name', lbl_org:'Organization (optional)', lbl_email:'Your email', lbl_phone:'Phone (optional)', lbl_msg:'Brief description of your situation',
-      chk_terms:'I agree to the <a href="terms.html" target="_blank" rel="noopener">Terms of Service</a>',
-      chk_privacy:'I have read the <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a>',
+      chk_terms:'I agree to the <a href="https://privacyterms.io/view/ZZT4xTsc-E0FgtAUS-K8fS2C" target="_blank" rel="noopener">Terms of Service</a>',
+      chk_privacy:'I have read the <a href="https://privacyterms.io/view/vp0ucvM8-O833vpkn-RCXmYa" target="_blank" rel="noopener">Privacy Policy</a>',
       chk_disclaimer:'I understand that HandAuth Pro provides <strong>only preliminary automated analysis</strong> and that results are indicative only — not an expert forensic opinion and not suitable as legal evidence without certified specialist review.',
       btn_send:'Send',
       // footer
@@ -2176,8 +2202,8 @@
       con_disc_body:'HandAuth Pro僅提供<strong>初步自動篩查</strong>。結果<strong>僅供參考，用於內部分流目的</strong>。它們不構成專業法證分析，不可在法庭上作為呈堂證供，也不能替代認證法證文件鑑定人或筆跡學家的意見。',
       con_lead:'簡要描述您的情況，並附上或參考您的簽名文件。我們將提供初步概覽，協助您決定下一步行動。',
       lbl_name:'全名', lbl_org:'機構（可選）', lbl_email:'您的電子郵件', lbl_phone:'電話（可選）', lbl_msg:'簡要描述您的情況',
-      chk_terms:'我同意<a href="terms.html" target="_blank" rel="noopener">服務條款</a>',
-      chk_privacy:'我已閱讀<a href="privacy.html" target="_blank" rel="noopener">私隱政策</a>',
+      chk_terms:'我同意<a href="https://privacyterms.io/view/ZZT4xTsc-E0FgtAUS-K8fS2C" target="_blank" rel="noopener">服務條款</a>',
+      chk_privacy:'我已閱讀<a href="https://privacyterms.io/view/vp0ucvM8-O833vpkn-RCXmYa" target="_blank" rel="noopener">私隱政策</a>',
       chk_disclaimer:'我理解HandAuth Pro僅提供<strong>初步自動分析</strong>，結果僅供參考——並非專業法證意見，未經認證專家審查不適合作為法律證據。',
       btn_send:'發送',
       footer_tagline:'專業筆跡認證及簽名分析',
@@ -2282,8 +2308,8 @@
       con_disc_body:'HandAuth Pro केवल <strong>प्रारंभिक स्वचालित जांच</strong> प्रदान करता है। परिणाम <strong>केवल सांकेतिक और आंतरिक ट्राइएज उद्देश्यों के लिए हैं</strong>। वे विशेषज्ञ न्यायालयिक विश्लेषण नहीं हैं, न्यायालय-स्वीकार्य नहीं हैं, और प्रमाणित न्यायालयिक दस्तावेज़ परीक्षक या ग्राफोलॉजिस्ट की राय का विकल्प नहीं हैं।',
       con_lead:'अपनी स्थिति का संक्षेप में वर्णन करें और अपनी हस्ताक्षर फ़ाइलें संलग्न करें। हम अगले कदम तय करने में मदद के लिए प्रारंभिक अवलोकन प्रदान करेंगे।',
       lbl_name:'पूरा नाम', lbl_org:'संगठन (वैकल्पिक)', lbl_email:'आपका ईमेल', lbl_phone:'फ़ोन (वैकल्पिक)', lbl_msg:'अपनी स्थिति का संक्षिप्त विवरण',
-      chk_terms:'मैं <a href="terms.html" target="_blank" rel="noopener">सेवा की शर्तों</a> से सहमत हूं',
-      chk_privacy:'मैंने <a href="privacy.html" target="_blank" rel="noopener">गोपनीयता नीति</a> पढ़ ली है',
+      chk_terms:'मैं <a href="https://privacyterms.io/view/ZZT4xTsc-E0FgtAUS-K8fS2C" target="_blank" rel="noopener">सेवा की शर्तों</a> से सहमत हूं',
+      chk_privacy:'मैंने <a href="https://privacyterms.io/view/vp0ucvM8-O833vpkn-RCXmYa" target="_blank" rel="noopener">गोपनीयता नीति</a> पढ़ ली है',
       chk_disclaimer:'मैं समझता/समझती हूं कि HandAuth Pro केवल <strong>प्रारंभिक स्वचालित विश्लेषण</strong> प्रदान करता है और परिणाम केवल सांकेतिक हैं — विशेषज्ञ न्यायालयिक राय नहीं और प्रमाणित विशेषज्ञ समीक्षा के बिना कानूनी साक्ष्य के रूप में उपयुक्त नहीं।',
       btn_send:'भेजें',
       footer_tagline:'व्यावसायिक हस्तलेखन प्रमाणीकरण और हस्ताक्षर विश्लेषण',
@@ -2388,8 +2414,8 @@
       con_disc_body:'يوفر HandAuth Pro <strong>فحصًا آليًا أوليًا فحسب</strong>. النتائج <strong>استرشادية وللاستخدام الداخلي في الفرز فقط</strong>. وهي لا تُشكِّل تحليلًا شرعيًا متخصصًا، وغير مقبولة أمام المحاكم، ولا تُغني عن رأي فاحص وثائق شرعي معتمد أو متخصص في الغرافولوجيا.',
       con_lead:'صِف وضعك باختصار وأرفق ملفات التواقيع أو أشر إليها. سنقدم نظرة عامة أولية لمساعدتك في تحديد الخطوات التالية.',
       lbl_name:'الاسم الكامل', lbl_org:'المؤسسة (اختياري)', lbl_email:'بريدك الإلكتروني', lbl_phone:'الهاتف (اختياري)', lbl_msg:'وصف موجز لوضعك',
-      chk_terms:'أوافق على <a href="terms.html" target="_blank" rel="noopener">شروط الخدمة</a>',
-      chk_privacy:'لقد اطلعت على <a href="privacy.html" target="_blank" rel="noopener">سياسة الخصوصية</a>',
+      chk_terms:'أوافق على <a href="https://privacyterms.io/view/ZZT4xTsc-E0FgtAUS-K8fS2C" target="_blank" rel="noopener">شروط الخدمة</a>',
+      chk_privacy:'لقد اطلعت على <a href="https://privacyterms.io/view/vp0ucvM8-O833vpkn-RCXmYa" target="_blank" rel="noopener">سياسة الخصوصية</a>',
       chk_disclaimer:'أفهم أن HandAuth Pro يوفر <strong>تحليلًا آليًا أوليًا فقط</strong> وأن النتائج استرشادية فحسب — وليست رأيًا شرعيًا متخصصًا ولا تصلح دليلًا قانونيًا دون مراجعة متخصص معتمد.',
       btn_send:'إرسال',
       footer_tagline:'المصادقة الاحترافية على خط اليد وتحليل التواقيع',
@@ -2494,8 +2520,8 @@
       con_disc_body:'HandAuth Pro bietet ausschließlich <strong>automatisierte Vorprüfung</strong>. Ergebnisse sind <strong>indikativ und ausschließlich für interne Triage-Zwecke</strong>. Sie stellen keine forensische Fachanalyse dar, sind nicht gerichtsverwertbar und ersetzen kein Gutachten eines zertifizierten forensischen Dokumentenprüfers oder Graphologen.',
       con_lead:'Schildern Sie Ihre Situation kurz und fügen Sie Ihre Unterschriftdateien bei. Wir liefern einen ersten Überblick, der Ihnen bei der Entscheidung über nächste Schritte hilft.',
       lbl_name:'Vollständiger Name', lbl_org:'Organisation (optional)', lbl_email:'Ihre E-Mail', lbl_phone:'Telefon (optional)', lbl_msg:'Kurze Beschreibung Ihrer Situation',
-      chk_terms:'Ich stimme den <a href="terms.html" target="_blank" rel="noopener">Nutzungsbedingungen</a> zu',
-      chk_privacy:'Ich habe die <a href="privacy.html" target="_blank" rel="noopener">Datenschutzrichtlinie</a> gelesen',
+      chk_terms:'Ich stimme den <a href="https://privacyterms.io/view/ZZT4xTsc-E0FgtAUS-K8fS2C" target="_blank" rel="noopener">Nutzungsbedingungen</a> zu',
+      chk_privacy:'Ich habe die <a href="https://privacyterms.io/view/vp0ucvM8-O833vpkn-RCXmYa" target="_blank" rel="noopener">Datenschutzrichtlinie</a> gelesen',
       chk_disclaimer:'Ich verstehe, dass HandAuth Pro <strong>ausschließlich automatisierte Voranalyse</strong> liefert und die Ergebnisse ausschließlich indikativ sind — kein forensisches Fachgutachten und ohne zertifizierte Fachbegutachtung nicht als rechtliches Beweismittel geeignet.',
       btn_send:'Senden',
       footer_tagline:'Professionelle Handschriftauthentifizierung & Unterschriftenanalyse',
@@ -2600,8 +2626,8 @@
       con_disc_body:'HandAuth Pro は<strong>予備的な自動スクリーニングのみ</strong>を提供します。結果は<strong>参考値であり、内部トリアージ目的のみ</strong>です。専門的な法科学分析を構成するものではなく、法廷で採用されず、認定法科学文書検査員または筆跡専門家の意見の代替ではありません。',
       con_lead:'状況を簡単に説明し、署名ファイルを添付または参照してください。次のステップを決定するための予備的な概要を提供します。',
       lbl_name:'氏名', lbl_org:'組織（任意）', lbl_email:'メールアドレス', lbl_phone:'電話番号（任意）', lbl_msg:'状況の簡単な説明',
-      chk_terms:'<a href="terms.html" target="_blank" rel="noopener">利用規約</a>に同意します',
-      chk_privacy:'<a href="privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>を読みました',
+      chk_terms:'<a href="https://privacyterms.io/view/ZZT4xTsc-E0FgtAUS-K8fS2C" target="_blank" rel="noopener">利用規約</a>に同意します',
+      chk_privacy:'<a href="https://privacyterms.io/view/vp0ucvM8-O833vpkn-RCXmYa" target="_blank" rel="noopener">プライバシーポリシー</a>を読みました',
       chk_disclaimer:'HandAuth Pro は<strong>予備的な自動分析のみ</strong>を提供し、結果は参考値にすぎないことを理解しています — 専門家の法科学意見ではなく、認定専門家レビューなしには法的証拠として適しません。',
       btn_send:'送信',
       footer_tagline:'専門的な筆跡認証と署名分析',
@@ -2703,8 +2729,8 @@
       con_disc_body:'HandAuth Pro fournit uniquement un <strong>dépistage automatique préliminaire</strong>. Les résultats sont <strong>indicatifs et destinés uniquement au triage interne</strong>. Ils ne constituent pas une analyse experte judiciaire, ne sont pas admissibles en tribunal et ne remplacent pas l\'avis d\'un examinateur judiciaire certifié de documents ou d\'un graphologue.',
       con_lead:'Décrivez brièvement votre situation et joignez ou référencez vos fichiers de signatures. Nous fournirons un aperçu préliminaire pour vous aider à décider des prochaines étapes.',
       lbl_name:'Nom complet', lbl_org:'Organisation (facultatif)', lbl_email:'Votre adresse e-mail', lbl_phone:'Téléphone (facultatif)', lbl_msg:'Brève description de votre situation',
-      chk_terms:'J\'accepte les <a href="terms.html" target="_blank" rel="noopener">Conditions d\'utilisation</a>',
-      chk_privacy:'J\'ai lu la <a href="privacy.html" target="_blank" rel="noopener">Politique de confidentialité</a>',
+      chk_terms:'J\'accepte les <a href="https://privacyterms.io/view/ZZT4xTsc-E0FgtAUS-K8fS2C" target="_blank" rel="noopener">Conditions d\'utilisation</a>',
+      chk_privacy:'J\'ai lu la <a href="https://privacyterms.io/view/vp0ucvM8-O833vpkn-RCXmYa" target="_blank" rel="noopener">Politique de confidentialité</a>',
       chk_disclaimer:'Je comprends que HandAuth Pro fournit <strong>uniquement une analyse automatique préliminaire</strong> et que les résultats sont uniquement indicatifs — pas un avis judiciaire expert ni adapté comme preuve juridique sans évaluation experte certifiée.',
       btn_send:'Envoyer',
       footer_tagline:'Authentification professionnelle de l\'écriture et analyse de signatures',
@@ -2806,8 +2832,8 @@
       con_disc_body:'HandAuth Pro fornisce unicamente uno <strong>screening automatico preliminare</strong>. I risultati sono <strong>indicativi e destinati solo al triage interno</strong>. Non costituiscono un\'analisi esperta forense, non sono ammissibili in tribunale e non sostituiscono il parere di un esaminatore forense certificato di documenti o di un grafologo.',
       con_lead:'Descrivi brevemente la tua situazione e allega o fai riferimento ai tuoi file di firma. Forniremo una panoramica preliminare per aiutarti a decidere i passi successivi.',
       lbl_name:'Nome completo', lbl_org:'Organizzazione (facoltativo)', lbl_email:'Il tuo indirizzo e-mail', lbl_phone:'Telefono (facoltativo)', lbl_msg:'Breve descrizione della tua situazione',
-      chk_terms:'Accetto i <a href="terms.html" target="_blank" rel="noopener">Termini di servizio</a>',
-      chk_privacy:'Ho letto l\'<a href="privacy.html" target="_blank" rel="noopener">Informativa sulla privacy</a>',
+      chk_terms:'Accetto i <a href="https://privacyterms.io/view/ZZT4xTsc-E0FgtAUS-K8fS2C" target="_blank" rel="noopener">Termini di servizio</a>',
+      chk_privacy:'Ho letto l\'<a href="https://privacyterms.io/view/vp0ucvM8-O833vpkn-RCXmYa" target="_blank" rel="noopener">Informativa sulla privacy</a>',
       chk_disclaimer:'Comprendo che HandAuth Pro fornisce <strong>unicamente un\'analisi automatica preliminare</strong> e che i risultati sono solo indicativi — non un parere forense esperto né adatto come prova legale senza una valutazione esperta certificata.',
       btn_send:'Invia',
       footer_tagline:'Autenticazione professionale della scrittura e analisi delle firme',
@@ -2909,8 +2935,8 @@
       con_disc_body:'HandAuth Pro poskytuje výhradně <strong>předběžné automatické prověření</strong>. Výsledky jsou <strong>orientační a určeny pouze pro interní triáž</strong>. Nepředstavují odbornou soudní analýzu, nejsou přijatelné u soudu a nenahrazují stanovisko certifikovaného soudního vyšetřovatele dokumentů nebo grafologa.',
       con_lead:'Stručně popište svou situaci a přiložte nebo odkazujte své soubory podpisů. Poskytneme předběžný přehled, který vám pomůže rozhodnout o dalších krocích.',
       lbl_name:'Celé jméno', lbl_org:'Organizace (nepovinné)', lbl_email:'Vaše e-mailová adresa', lbl_phone:'Telefon (nepovinné)', lbl_msg:'Stručný popis vaší situace',
-      chk_terms:'Souhlasím s <a href="terms.html" target="_blank" rel="noopener">Podmínkami použití</a>',
-      chk_privacy:'Přečetl(a) jsem si <a href="privacy.html" target="_blank" rel="noopener">Zásady ochrany osobních údajů</a>',
+      chk_terms:'Souhlasím s <a href="https://privacyterms.io/view/ZZT4xTsc-E0FgtAUS-K8fS2C" target="_blank" rel="noopener">Podmínkami použití</a>',
+      chk_privacy:'Přečetl(a) jsem si <a href="https://privacyterms.io/view/vp0ucvM8-O833vpkn-RCXmYa" target="_blank" rel="noopener">Zásady ochrany osobních údajů</a>',
       chk_disclaimer:'Chápu, že HandAuth Pro poskytuje <strong>pouze předběžnou automatickou analýzu</strong> a že výsledky jsou pouze orientační — nikoli odborné soudní stanovisko ani vhodné jako právní důkaz bez certifikovaného expertního posouzení.',
       btn_send:'Odeslat',
       footer_tagline:'Profesionální ověřování rukopisu a analýza podpisů',
@@ -3012,8 +3038,8 @@
       con_disc_body:'HandAuth Pro biedt uitsluitend <strong>voorlopige geautomatiseerde screening</strong>. Resultaten zijn <strong>indicatief en uitsluitend bestemd voor interne triage</strong>. Ze vormen geen forensische expertanalyse, zijn niet toelaatbaar als rechtsbewijs en vervangen niet het advies van een gecertificeerde forensische documentonderzoeker of grafoloog.',
       con_lead:'Beschrijf kort uw situatie en voeg uw handtekeningbestanden bij of verwijs ernaar. Wij geven een voorlopig overzicht om u te helpen de volgende stappen te bepalen.',
       lbl_name:'Volledige naam', lbl_org:'Organisatie (optioneel)', lbl_email:'Uw e-mailadres', lbl_phone:'Telefoon (optioneel)', lbl_msg:'Korte beschrijving van uw situatie',
-      chk_terms:'Ik ga akkoord met de <a href="terms.html" target="_blank" rel="noopener">Gebruiksvoorwaarden</a>',
-      chk_privacy:'Ik heb het <a href="privacy.html" target="_blank" rel="noopener">Privacybeleid</a> gelezen',
+      chk_terms:'Ik ga akkoord met de <a href="https://privacyterms.io/view/ZZT4xTsc-E0FgtAUS-K8fS2C" target="_blank" rel="noopener">Gebruiksvoorwaarden</a>',
+      chk_privacy:'Ik heb het <a href="https://privacyterms.io/view/vp0ucvM8-O833vpkn-RCXmYa" target="_blank" rel="noopener">Privacybeleid</a> gelezen',
       chk_disclaimer:'Ik begrijp dat HandAuth Pro <strong>uitsluitend voorlopige geautomatiseerde analyse</strong> biedt en dat resultaten slechts indicatief zijn — geen forensisch expertadvies en niet geschikt als rechtsbewijs zonder gecertificeerde expertbeoordeling.',
       btn_send:'Verzenden',
       footer_tagline:'Professionele handschriftauthenticatie en handtekeninganalyse',
