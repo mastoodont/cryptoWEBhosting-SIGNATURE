@@ -30,27 +30,28 @@
 
     /* ── Design tokens ────────────────────────────────────────── */
     :root {
-      --bg-gradient:    linear-gradient(160deg, #05111f 0%, #081828 50%, #0b1e30 100%);
+      --bg-gradient:    linear-gradient(160deg, #040e1c 0%, #071526 50%, #0a1c2e 100%);
       --accent-gold:    #c9a84c;
-      --accent-gold-lt: #e8cc80;
-      --accent-glow:    rgba(201,168,76,0.18);
-      --card:           rgba(255,255,255,0.042);
-      --card-border:    rgba(201,168,76,0.13);
-      --card-hover:     rgba(255,255,255,0.07);
+      --accent-gold-lt: #f0d88a;
+      --accent-gold-dk: #a07830;
+      --accent-glow:    rgba(201,168,76,0.22);
+      --card:           rgba(255,255,255,0.036);
+      --card-border:    rgba(201,168,76,0.14);
+      --card-hover:     rgba(255,255,255,0.065);
       --text-light:     #eef2f7;
       --text-muted:     #8fa3b8;
-      --radius:         16px;
-      --radius-sm:      10px;
-      --shadow:         0 8px 32px rgba(0,0,0,0.38);
-      --shadow-gold:    0 0 40px rgba(201,168,76,0.07);
-      --glass:          rgba(8,24,40,0.6);
+      --radius:         18px;
+      --radius-sm:      11px;
+      --shadow:         0 8px 40px rgba(0,0,0,0.45);
+      --shadow-gold:    0 0 50px rgba(201,168,76,0.09);
+      --glass:          rgba(6,18,34,0.65);
       --icon-size:      20px;
       --sp-xs:  8px;
       --sp-sm:  16px;
       --sp-md:  28px;
       --sp-lg:  48px;
       --sp-xl:  96px;
-      --border-subtle:  1px solid rgba(255,255,255,0.055);
+      --border-subtle:  1px solid rgba(255,255,255,0.05);
     }
 
     /* ── Global reset ──────────────────────────────────────────── */
@@ -96,11 +97,12 @@
     header {
       position: fixed;
       left: 0; right: 0; top: 0;
-      background: rgba(5,17,31,0.88);
-      backdrop-filter: blur(20px) saturate(1.4);
-      -webkit-backdrop-filter: blur(20px) saturate(1.4);
+      background: rgba(4,14,28,0.92);
+      backdrop-filter: blur(24px) saturate(1.6);
+      -webkit-backdrop-filter: blur(24px) saturate(1.6);
       z-index: 1000;
-      border-bottom: 1px solid rgba(201,168,76,0.1);
+      border-bottom: 1px solid rgba(201,168,76,0.12);
+      box-shadow: 0 1px 0 rgba(201,168,76,0.05), 0 4px 24px rgba(0,0,0,0.4);
     }
     .header-inner {
       display: flex;
@@ -135,24 +137,27 @@
       justify-content: flex-end;
     }
     nav a {
-      color: rgba(238,242,247,0.75);
+      color: rgba(238,242,247,0.72);
       margin-left: 18px;
       text-decoration: none;
       font-weight: 500;
-      font-size: 0.85rem;
+      font-size: 0.84rem;
       white-space: nowrap;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.025em;
       transition: color 0.2s;
       position: relative;
+      padding-bottom: 2px;
     }
     nav a::after {
       content: '';
       position: absolute;
-      bottom: -2px; left: 0; right: 0;
-      height: 1px;
-      background: var(--accent-gold);
+      bottom: -3px; left: 0; right: 0;
+      height: 1.5px;
+      background: linear-gradient(90deg, var(--accent-gold-dk), var(--accent-gold));
       transform: scaleX(0);
-      transition: transform 0.2s ease;
+      transform-origin: left;
+      transition: transform 0.25s ease;
+      border-radius: 2px;
     }
     nav a:hover { color: var(--accent-gold-lt); }
     nav a:hover::after { transform: scaleX(1); }
@@ -236,24 +241,25 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(201,168,76,0.1);
-      border: 1px solid rgba(201,168,76,0.28);
+      background: rgba(201,168,76,0.08);
+      border: 1px solid rgba(201,168,76,0.3);
       border-radius: 999px;
-      padding: 7px 18px;
-      font-size: 0.78rem;
+      padding: 8px 22px;
+      font-size: 0.75rem;
       font-weight: 600;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--accent-gold-lt);
-      margin-bottom: 22px;
+      margin-bottom: 24px;
       animation: heroBadgePop 0.7s cubic-bezier(0.34,1.56,0.64,1) 0.2s both;
+      box-shadow: 0 2px 12px rgba(201,168,76,0.1), inset 0 1px 0 rgba(255,255,255,0.05);
     }
     .hero-badge::before {
       content: '';
       width: 7px; height: 7px;
       border-radius: 50%;
       background: var(--accent-gold);
-      box-shadow: 0 0 8px rgba(201,168,76,0.7);
+      box-shadow: 0 0 10px rgba(201,168,76,0.8);
       animation: goldPulse 2s ease-in-out 1s infinite;
       flex-shrink: 0;
     }
@@ -289,13 +295,7 @@
     .reveal-delay-6 { transition-delay: 0.48s; }
 
     /* ── Card hover float ─────────────────────────────────────── */
-    .card {
-      transition: background 0.25s, border-color 0.25s, transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s;
-    }
-    .card:hover {
-      transform: translateY(-5px) scale(1.01);
-      box-shadow: 0 16px 48px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,168,76,0.18);
-    }
+    /* (handled per-component; no global override needed) */
     .hero h1 {
       font-family: 'Cormorant Garamond', Georgia, serif;
       font-size: clamp(2.3rem, 5vw, 3.8rem);
@@ -416,36 +416,60 @@
       padding-bottom: var(--sp-xl);
       position: relative;
     }
+    /* Decorative section separator */
+    section:not(.hero) + section:not(.hero)::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%; transform: translateX(-50%);
+      width: 80px; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(201,168,76,0.3), transparent);
+    }
     #who-for { padding-top: var(--sp-xl); }
-    .section-alt { background: rgba(255,255,255,0.016); }
+    .section-alt {
+      background: rgba(255,255,255,0.014);
+      border-top: 1px solid rgba(255,255,255,0.03);
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
 
     /* ── Typography ────────────────────────────────────────────── */
     h2 {
       font-family: 'Cormorant Garamond', Georgia, serif;
-      color: var(--accent-gold);
+      color: var(--accent-gold-lt);
       text-align: center;
-      font-size: clamp(1.65rem, 3.2vw, 2.55rem);
+      font-size: clamp(1.75rem, 3.5vw, 2.75rem);
       font-weight: 600;
-      line-height: 1.22;
+      line-height: 1.18;
       margin-bottom: var(--sp-sm);
-      letter-spacing: -0.01em;
+      letter-spacing: -0.015em;
+      position: relative;
+      display: block;
+    }
+    h2::after {
+      content: '';
+      display: block;
+      width: 48px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-gold-dk), var(--accent-gold), var(--accent-gold-dk));
+      margin: 14px auto 0;
+      border-radius: 2px;
+      opacity: 0.75;
     }
     h3 {
       font-family: 'Cormorant Garamond', Georgia, serif;
       font-weight: 600;
       line-height: 1.3;
-      font-size: 1.08rem;
+      font-size: 1.1rem;
     }
     p { margin-bottom: var(--sp-sm); }
     p:last-child { margin-bottom: 0; }
 
     .lead {
       text-align: center;
-      color: rgba(214,225,239,0.82);
-      max-width: 860px;
+      color: rgba(214,225,239,0.78);
+      max-width: 820px;
       margin: 0 auto var(--sp-lg);
-      font-size: 1rem;
-      line-height: 1.7;
+      font-size: 1.02rem;
+      line-height: 1.72;
       font-weight: 300;
     }
 
@@ -453,15 +477,15 @@
     .features-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
+      gap: 22px;
     }
     .card {
       background: var(--card);
       border: 1px solid var(--card-border);
-      padding: 26px 24px;
+      padding: 28px 26px;
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      transition: background 0.25s, border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+      transition: background 0.3s, border-color 0.3s, transform 0.3s cubic-bezier(0.34,1.4,0.64,1), box-shadow 0.3s;
       position: relative;
       overflow: hidden;
     }
@@ -470,44 +494,65 @@
       position: absolute;
       top: 0; left: 0; right: 0;
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(201,168,76,0.25), transparent);
+      background: linear-gradient(90deg, transparent, rgba(201,168,76,0.4), transparent);
       opacity: 0;
-      transition: opacity 0.3s;
+      transition: opacity 0.35s;
+    }
+    .card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 60px;
+      background: linear-gradient(to top, rgba(201,168,76,0.03), transparent);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.35s;
     }
     .card:hover {
       background: var(--card-hover);
-      border-color: rgba(201,168,76,0.22);
-      transform: translateY(-3px);
-      box-shadow: 0 16px 40px rgba(0,0,0,0.4), var(--shadow-gold);
+      border-color: rgba(201,168,76,0.28);
+      transform: translateY(-5px) scale(1.008);
+      box-shadow: 0 20px 52px rgba(0,0,0,0.48), 0 0 0 1px rgba(201,168,76,0.12), var(--shadow-gold);
     }
-    .card:hover::before { opacity: 1; }
+    .card:hover::before, .card:hover::after { opacity: 1; }
     .card h3 {
       color: var(--accent-gold-lt);
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       display: flex;
       align-items: flex-start;
-      gap: 10px;
-      font-size: 1rem;
+      gap: 12px;
+      font-size: 1.04rem;
     }
-    .muted { color: var(--text-muted); font-size: 0.93rem; line-height: 1.65; }
+    .muted { color: var(--text-muted); font-size: 0.93rem; line-height: 1.68; }
 
     /* ── Icons ─────────────────────────────────────────────────── */
     .icon {
-      width: var(--icon-size);
-      height: var(--icon-size);
-      display: inline-block;
-      flex: 0 0 var(--icon-size);
+      width: 36px;
+      height: 36px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 36px;
       color: var(--accent-gold);
-      margin-top: 2px;
+      background: rgba(201,168,76,0.10);
+      border: 1px solid rgba(201,168,76,0.18);
+      border-radius: 10px;
+      margin-top: 0;
+      transition: background 0.25s, border-color 0.25s;
     }
-    .icon svg { width: 100%; height: 100%; display: block; stroke: currentColor; stroke-width: 1.6; fill: none; }
+    .card:hover .icon {
+      background: rgba(201,168,76,0.16);
+      border-color: rgba(201,168,76,0.35);
+    }
+    .icon svg { width: var(--icon-size); height: var(--icon-size); display: block; stroke: currentColor; stroke-width: 1.6; fill: none; }
 
     /* ── Notice box ────────────────────────────────────────────── */
     .notice-box {
-      background: linear-gradient(135deg, rgba(201,168,76,0.08) 0%, rgba(201,168,76,0.04) 100%);
-      border: 1px solid rgba(201,168,76,0.32);
+      background: linear-gradient(135deg, rgba(201,168,76,0.07) 0%, rgba(201,168,76,0.03) 100%);
+      border: 1px solid rgba(201,168,76,0.28);
+      border-top: 2px solid rgba(201,168,76,0.5);
       border-radius: var(--radius);
-      padding: 22px 26px;
+      padding: 24px 28px;
       margin: var(--sp-sm) auto var(--sp-md);
       max-width: 100%;
       width: 100%;
@@ -515,7 +560,8 @@
       text-align: left;
       overflow-wrap: break-word;
       word-break: break-word;
-      backdrop-filter: blur(8px);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.04);
     }
     .notice-box .notice-title {
       color: var(--accent-gold);
@@ -547,92 +593,120 @@
     .steps-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 20px;
+      gap: 22px;
       margin-top: 8px;
     }
     .step-card {
       background: var(--card);
       border: 1px solid var(--card-border);
-      padding: 30px 24px 26px;
+      padding: 32px 26px 28px;
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       position: relative;
       overflow: hidden;
-      transition: background 0.25s, border-color 0.25s, transform 0.25s;
+      transition: background 0.3s, border-color 0.3s, transform 0.3s cubic-bezier(0.34,1.4,0.64,1);
+    }
+    .step-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(201,168,76,0.35), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
     }
     .step-card:hover {
       background: var(--card-hover);
-      border-color: rgba(201,168,76,0.22);
-      transform: translateY(-2px);
+      border-color: rgba(201,168,76,0.25);
+      transform: translateY(-4px);
     }
+    .step-card:hover::before { opacity: 1; }
     .step-num {
       position: absolute;
-      top: 14px; right: 18px;
+      top: 16px; right: 20px;
       font-family: 'Cormorant Garamond', serif;
-      font-size: 2.8rem;
-      color: rgba(201,168,76,0.1);
+      font-size: 3.2rem;
+      color: rgba(201,168,76,0.12);
       font-weight: 700;
       line-height: 1;
       pointer-events: none;
       user-select: none;
+      letter-spacing: -0.02em;
     }
     .step-card h3 {
       color: var(--accent-gold-lt);
       margin-bottom: 12px;
       display: flex;
       align-items: flex-start;
-      gap: 10px;
+      gap: 12px;
       padding-right: 44px;
-      font-size: 1rem;
+      font-size: 1.04rem;
     }
 
     /* ── Trust grid ────────────────────────────────────────────── */
     .trust-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 16px;
+      gap: 18px;
       margin-top: 8px;
     }
     .trust-item {
       background: var(--card);
       border: 1px solid var(--card-border);
-      padding: 22px 24px;
+      padding: 24px 26px;
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       display: flex;
-      gap: 16px;
+      gap: 18px;
       align-items: flex-start;
-      transition: background 0.25s, border-color 0.25s;
+      transition: background 0.3s, border-color 0.3s, transform 0.3s;
     }
     .trust-item:hover {
       background: var(--card-hover);
-      border-color: rgba(201,168,76,0.2);
+      border-color: rgba(201,168,76,0.22);
+      transform: translateY(-2px);
     }
     .trust-bullet {
       color: var(--accent-gold);
-      font-size: 1rem;
+      font-size: 1.1rem;
       flex-shrink: 0;
-      margin-top: 3px;
+      margin-top: 2px;
       line-height: 1;
     }
     .trust-item strong {
       color: var(--text-light);
       display: block;
       margin-bottom: 6px;
-      font-size: 0.96rem;
+      font-size: 0.98rem;
       font-family: 'Cormorant Garamond', serif;
       font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    /* Scrolled header style */
+    header.scrolled {
+      background: rgba(4,14,28,0.97);
+      box-shadow: 0 2px 32px rgba(0,0,0,0.5);
     }
 
     /* ── Disclaimer banner ─────────────────────────────────────── */
     .disclaimer-banner {
       margin: var(--sp-lg) auto 0;
       max-width: 860px;
-      background: rgba(201,168,76,0.06);
-      border: 1px solid rgba(201,168,76,0.2);
+      background: rgba(201,168,76,0.05);
+      border: 1px solid rgba(201,168,76,0.18);
       border-radius: var(--radius-sm);
-      padding: 22px 30px;
+      padding: 24px 32px;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .disclaimer-banner::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(201,168,76,0.3), transparent);
     }
     .disclaimer-banner p {
       color: rgba(216,226,240,0.78);
@@ -652,11 +726,16 @@
     .diagram-card {
       background: var(--card);
       border: 1px solid var(--card-border);
-      padding: 22px;
+      padding: 26px;
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       position: relative;
       overflow: hidden;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .diagram-card:hover {
+      border-color: rgba(201,168,76,0.22);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.38);
     }
     .diagram-title { font-weight: 600; color: var(--accent-gold); margin-bottom: 14px; font-size: 0.95rem; letter-spacing: 0.02em; font-family: 'DM Mono', monospace; }
     .svg-center { display: flex; justify-content: center; align-items: center; }
@@ -697,9 +776,13 @@
       border: 1px solid var(--card-border);
       border-radius: var(--radius-sm);
       overflow: hidden;
-      transition: border-color 0.2s;
+      transition: border-color 0.25s, box-shadow 0.25s;
     }
-    .faq-item:hover { border-color: rgba(201,168,76,0.22); }
+    .faq-item:hover { border-color: rgba(201,168,76,0.25); box-shadow: 0 4px 20px rgba(0,0,0,0.25); }
+    .faq-item.open {
+      border-color: rgba(201,168,76,0.28);
+      box-shadow: 0 6px 28px rgba(0,0,0,0.28), 0 0 0 1px rgba(201,168,76,0.06);
+    }
     .faq-question {
       width: 100%;
       background: none;
@@ -708,7 +791,7 @@
       font-family: 'DM Sans', sans-serif;
       font-size: 0.97rem;
       font-weight: 500;
-      padding: 20px 24px;
+      padding: 22px 26px;
       text-align: left;
       cursor: pointer;
       display: flex;
@@ -724,50 +807,71 @@
       font-size: 1.4rem;
       font-weight: 300;
       flex-shrink: 0;
-      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), color 0.2s;
       line-height: 1;
+      width: 28px;
+      height: 28px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(201,168,76,0.08);
+      border: 1px solid rgba(201,168,76,0.18);
+      border-radius: 50%;
+      font-size: 1.1rem;
     }
-    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-item.open .faq-icon { transform: rotate(45deg); background: rgba(201,168,76,0.16); border-color: rgba(201,168,76,0.35); }
     .faq-answer {
       display: none;
-      padding: 0 24px 22px;
+      padding: 0 26px 24px;
       color: var(--text-muted);
-      font-size: 0.92rem;
+      font-size: 0.93rem;
       line-height: 1.72;
       font-weight: 300;
+      border-top: 1px solid rgba(201,168,76,0.08);
+      padding-top: 16px;
     }
     .faq-item.open .faq-answer { display: block; }
 
     /* ── CTA section ───────────────────────────────────────────── */
     .cta-section {
-      background: linear-gradient(135deg, rgba(201,168,76,0.07) 0%, rgba(8,24,40,0) 100%);
-      border-top: 1px solid rgba(201,168,76,0.12);
-      border-bottom: 1px solid rgba(201,168,76,0.12);
+      background: linear-gradient(135deg, rgba(201,168,76,0.06) 0%, rgba(8,24,40,0) 70%);
+      border-top: 1px solid rgba(201,168,76,0.13);
+      border-bottom: 1px solid rgba(201,168,76,0.13);
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -80px; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 200px;
+      background: radial-gradient(ellipse, rgba(201,168,76,0.06) 0%, transparent 70%);
+      pointer-events: none;
     }
     .cta-points {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px 36px;
+      gap: 12px 40px;
       justify-content: center;
       color: var(--text-muted);
-      font-size: 0.92rem;
-      margin: 12px auto var(--sp-lg);
+      font-size: 0.93rem;
+      margin: 14px auto var(--sp-lg);
       max-width: 800px;
     }
-    .cta-points span { display: flex; align-items: center; gap: 8px; }
-    .cta-points span::before { content: '✓'; color: var(--accent-gold); font-weight: 700; }
+    .cta-points span { display: flex; align-items: center; gap: 10px; }
+    .cta-points span::before { content: '✓'; color: var(--accent-gold); font-weight: 700; width: 18px; height: 18px; display: inline-flex; align-items: center; justify-content: center; background: rgba(201,168,76,0.1); border-radius: 50%; font-size: 0.72rem; flex-shrink: 0; }
 
     /* ── Contact form ──────────────────────────────────────────── */
     form {
-      background: rgba(8,24,40,0.55);
+      background: rgba(6,18,34,0.6);
       border: 1px solid var(--card-border);
-      padding: 32px;
+      padding: 36px;
       border-radius: var(--radius);
       max-width: 760px;
       margin: 0 auto;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
-      backdrop-filter: blur(12px);
+      box-shadow: 0 16px 56px rgba(0,0,0,0.45);
+      backdrop-filter: blur(16px);
     }
     .form-grid {
       display: grid;
@@ -776,22 +880,27 @@
       margin-bottom: 18px;
     }
     .form-row { display: flex; flex-direction: column; gap: 8px; }
-    label { font-weight: 500; font-size: 0.88rem; color: rgba(230,238,248,0.8); letter-spacing: 0.03em; }
+    label { font-weight: 500; font-size: 0.86rem; color: rgba(230,238,248,0.75); letter-spacing: 0.04em; text-transform: uppercase; }
     input, textarea {
-      padding: 13px 16px;
+      padding: 14px 18px;
       border-radius: var(--radius-sm);
-      border: 1px solid rgba(255,255,255,0.07);
-      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
       color: var(--text-light);
       font-size: 0.95rem;
       font-family: 'DM Sans', sans-serif;
       outline: none;
       width: 100%;
-      transition: border-color 0.2s, box-shadow 0.2s;
+      transition: border-color 0.25s, box-shadow 0.25s, background 0.25s;
+    }
+    input:hover, textarea:hover {
+      border-color: rgba(201,168,76,0.2);
+      background: rgba(255,255,255,0.04);
     }
     input:focus, textarea:focus {
-      border-color: rgba(201,168,76,0.4);
-      box-shadow: 0 0 0 3px rgba(201,168,76,0.07);
+      border-color: rgba(201,168,76,0.45);
+      background: rgba(255,255,255,0.04);
+      box-shadow: 0 0 0 3px rgba(201,168,76,0.09);
     }
     textarea { min-height: 140px; resize: vertical; }
     .consent {
@@ -962,9 +1071,17 @@
 
     /* ── Footer ────────────────────────────────────────────────── */
     footer {
-      border-top: 1px solid rgba(201,168,76,0.1);
-      padding: 52px 0 44px;
-      background: rgba(5,17,31,0.4);
+      border-top: 1px solid rgba(201,168,76,0.13);
+      padding: 60px 0 48px;
+      background: linear-gradient(180deg, rgba(4,12,24,0.3) 0%, rgba(4,12,24,0.7) 100%);
+      position: relative;
+    }
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%; transform: translateX(-50%);
+      width: 120px; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(201,168,76,0.5), transparent);
     }
     footer .container { text-align: center; }
 
@@ -1204,6 +1321,11 @@
             <span>Nederlands</span>
             <span class="lang-native">Nederland</span>
           </div>
+          <div class="lang-option" data-lang="es-MX" role="option" tabindex="0">
+            <span class="lang-flag">🇲🇽</span>
+            <span>Español</span>
+            <span class="lang-native">México</span>
+          </div>
         </div>
       </div>
     </div>
@@ -1241,7 +1363,7 @@
   <!-- WHO IS THIS FOR — new block right after hero -->
   <section id="who-for">
     <div class="container">
-      <h2 class="reveal" data-i18n="whyfor_h2">Who Can Benefit from HandAuth Pro ?</h2>
+      <h2 class="reveal" data-i18n="whyfor_h2">Who Can Benefit from HandAuth Pro?</h2>
       <p class="lead reveal reveal-delay-1" data-i18n="whyfor_lead">We help save time and money at the very first stage of verification — before you decide whether to engage a certified forensic specialist.</p>
       <div class="features-grid">
         <div class="card reveal reveal-delay-1">
@@ -3180,6 +3302,137 @@
       footer_copy:'© 2026 HandAuth Pro — Alle rechten voorbehouden',
       footer_dl:'Voorbeeldoverzicht downloaden',
       _flag:'🇳🇱', _code:'NL',
+    },
+    'es-MX': {
+      // nav
+      nav_home:'Inicio', nav_features:'Funciones', nav_how:'Cómo funciona',
+      nav_cases:'Casos de uso', nav_faq:'Preguntas frecuentes', nav_contact:'Contacto',
+      nav_terms:'Términos', nav_privacy:'Privacidad',
+      // hero
+      hero_h1:'Autenticación profesional de escritura a mano y análisis de firmas',
+      hero_sub:'HandAuth Pro asiste a peritos forenses, profesionales jurídicos e instituciones financieras en el análisis de firmas manuscritas e identificación de inconsistencias estructurales mediante tecnología avanzada de comparación caligráfica.',
+      hero_trust:'Diseñado para apoyar la evaluación experta — no para reemplazarla.',
+      notice_title:'⚠ Aviso importante',
+      notice_1:'HandAuth Pro proporciona únicamente un <strong>análisis preliminar automatizado</strong> de firmas manuscritas mediante algoritmos de inteligencia artificial.',
+      notice_2:'Esta herramienta <strong>no reemplaza</strong> un examen caligráfico completo realizado por un perito forense en documentos certificado o un grafólogo.',
+      notice_3:'Los resultados son <strong>meramente indicativos</strong> y deben utilizarse exclusivamente para decidir si se requiere una revisión profesional especializada.',
+      notice_4:'Para cualquier asunto de relevancia legal, <strong>obtenga siempre una opinión oficial de un especialista calificado</strong>.',
+      hero_save:'Ahorre tiempo y recursos en la etapa inicial: evalúe rápidamente si una firma amerita una investigación profesional adicional.',
+      btn_request:'Solicitar', btn_contact:'Contáctenos',
+      // who-for
+      whyfor_h2:'¿Quién puede beneficiarse de HandAuth Pro?',
+      whyfor_lead:'Ayudamos a ahorrar tiempo y dinero en la primera etapa de verificación — antes de decidir si contratar a un perito forense certificado.',
+      wf1_h:'Abogados y profesionales jurídicos',
+      wf1_p:'Verificación inicial rápida antes de invertir en un peritaje completo. Ayuda a priorizar qué casos ameritan una revisión forense certificada.',
+      wf2_h:'Bancos, notarías e instituciones financieras',
+      wf2_p:'Detección temprana de señales de alerta evidentes en firmas antes de proceder con transacciones de alto valor o autenticación de documentos.',
+      wf3_h:'Empresas y departamentos de RR. HH.',
+      wf3_p:'Análisis preliminar de documentos internos y contratos firmados para identificar los que puedan requerir una revisión humana más detallada.',
+      wf4_h:'Particulares',
+      wf4_p:'Ayuda a entender si una firma sospechosa vale la pena investigar mediante un peritaje forense profesional.',
+      // features
+      feat_h2:'Capacidades de análisis preliminar',
+      feat_reminder:'<strong style="color:var(--accent-gold);">Recordatorio:</strong> Todos los resultados de HandAuth Pro son indicativos y preliminares. Están diseñados para apoyar decisiones de triaje — no para servir como conclusiones periciales, prueba legal o dictámenes admisibles ante tribunales.',
+      feat1_h:'Estimación preliminar de probabilidad',
+      feat1_p:'Una puntuación de probabilidad orientativa para ayudarle a evaluar rápidamente si una firma muestra señales de alerta tempranas — no un dictamen pericial definitivo.',
+      feat2_h:'Detección de artefactos no manuscritos',
+      feat2_p:'Detección de artefactos claramente no manuscritos como texto impreso, capturas de pantalla y generación sintética probable — indicadores básicos de riesgo.',
+      feat3_h:'Resumen visual sencillo',
+      feat3_p:'Un resumen visual de fácil lectura para comprender la situación de un vistazo y decidir los próximos pasos — solo para uso interno.',
+      feat4_h:'Múltiples firmas de referencia',
+      feat4_p:'Compatibilidad con la carga de varias firmas de referencia para mejorar la comparación preliminar y reducir falsos positivos evidentes en el triaje.',
+      // how it works
+      how_h2:'Cómo funciona HandAuth Pro',
+      how_lead:'Un proceso estructurado en cuatro etapas diseñado para integrarse en flujos de trabajo de peritaje caligráfico profesional.',
+      step1_h:'Envío de muestras', step1_p:'Se envía al sistema una muestra de escritura a mano o una imagen de documento. Ningún archivo se almacena en servidores externos — el flujo de trabajo permanece dentro del entorno controlado del operador.',
+      step2_h:'Extracción de características', step2_p:'El software extrae características clave de la escritura: estructura del trazo, formación de letras, proporciones, espaciado, puntos de levantamiento del bolígrafo y alineación de la línea base.',
+      step3_h:'Análisis comparativo', step3_p:'Algoritmos de comparación avanzados analizan las similitudes y desviaciones estructurales entre la muestra enviada y el material de referencia, identificando inconsistencias en los patrones.',
+      step4_h:'Informe de indicadores', step4_p:'El sistema genera un informe estructurado con indicadores analíticos y una puntuación de probabilidad — diseñado para asistir la interpretación pericial, no para reemplazarla.',
+      // analytical capabilities
+      cap_h2:'Capacidades analíticas',
+      cap_lead:'HandAuth Pro examina múltiples dimensiones de la estructura caligráfica para apoyar una evaluación comparativa exhaustiva.',
+      cap_note:'<strong style="color:var(--accent-gold);">Nota:</strong> Todos los resultados analíticos son meramente indicativos. Están destinados a asistir a peritos calificados — no a servir como conclusiones forenses independientes.',
+      cap1_h:'Análisis de la estructura del trazo', cap1_p:'Examina la estructura, continuidad y direccionalidad de los trazos de escritura, identificando inconsistencias que pueden indicar patrones de formación atípicos.',
+      cap2_h:'Análisis de la formación de letras', cap2_p:'Analiza cómo se construyen las letras y formas de caracteres individuales, incluyendo patrones de conexión, dimensiones de bucles y proporciones relativas.',
+      cap3_h:'Análisis de espaciado y proporciones', cap3_p:'Evalúa el espaciado entre letras y palabras, las proporciones de las zonas de escritura, el comportamiento de la línea base y la coherencia general del diseño en las muestras comparadas.',
+      cap4_h:'Comparación de patrones de firma', cap4_p:'Compara patrones estructurales, secuencias de movimiento del bolígrafo y elementos de diseño en múltiples muestras de firma para evaluar la coherencia o detectar desviaciones.',
+      // pro section
+      pro_h2:'HandAuth Pro: análisis con supervisión humana',
+      pro_lead:'Inteligencia artificial avanzada combinada con supervisión experta humana para una máxima precisión en el triaje preliminar.',
+      pro_1h:'Apoyo a expertos', pro_1p:'Nuestro sistema apoya — no reemplaza — a los peritos calificados en documentos. Cada indicador está diseñado para orientar el juicio experto, no para sustituirlo.',
+      pro_2h:'Instalación local', pro_2p:'HandAuth Pro opera completamente en el entorno local del cliente. Los datos de los documentos nunca salen de su infraestructura controlada.',
+      pro_3h:'Análisis multi-métrica', pro_3p:'Se evalúan múltiples características caligráficas simultáneamente para producir señales de triaje preliminares más sólidas.',
+      pro_disclaimer:'<strong style="color:#c9a84c;">Aviso importante:</strong> HandAuth Pro proporciona indicadores de triaje preliminares automatizados solamente. Los resultados son orientativos y no constituyen análisis forense certificado. Cualquier asunto con implicaciones legales debe ser revisado por un perito calificado en documentos.',
+      // use cases
+      uc_h2:'Casos de uso',
+      uc_lead:'HandAuth Pro apoya el triaje preliminar en una amplia variedad de contextos profesionales.',
+      uc1_h:'Disputas legales', uc1_p:'Triaje preliminar antes de comprometer recursos en un peritaje forense completo.',
+      uc2_h:'Operaciones bancarias', uc2_p:'Señalización temprana de posibles irregularidades en firmas para revisión humana antes de autorizar transacciones.',
+      uc3_h:'Investigaciones de seguros', uc3_p:'Ayuda a identificar documentos que merezcan escrutinio adicional en la revisión de reclamaciones.',
+      uc4_h:'Verificación notarial', uc4_p:'Apoyo al proceso de verificación preliminar antes de la autenticación notarial formal.',
+      uc5_h:'Documentos de RR. HH.', uc5_p:'Triaje de documentos firmados para priorizar qué casos requieren revisión humana detallada.',
+      uc6_h:'Herencias y sucesiones', uc6_p:'Orientación inicial rápida sobre si un documento testamentario podría merecer un peritaje forense.',
+      // insights
+      ins_h2:'Perspectivas del análisis preliminar',
+      ins_lead:'Los gráficos interactivos a continuación ilustran los <em>tipos de señales indicativas</em> que puede detectar nuestro análisis automatizado. Son resúmenes orientativos — no conclusiones periciales.',
+      // background
+      bg_h2:'Antecedentes: métodos digitales y clásicos',
+      bg_lead:'Una breve nota educativa sobre cómo difieren las herramientas automatizadas, los métodos criptográficos y el peritaje caligráfico tradicional — y por qué la revisión humana experta sigue siendo esencial.',
+      bg_p1:'Descripción general de las firmas digitales, el hashing y los límites del análisis automatizado frente al peritaje forense clásico.',
+      bg_p2:'Las firmas digitales y el hashing seguro pueden verificar que un archivo digital no ha sido alterado desde su creación, y pueden vincular un escaneo de una muestra manuscrita a un registro auditable. El análisis automatizado con IA, como HandAuth Pro, busca patrones estadísticos amplios y artefactos evidentes. Sin embargo, el <strong>peritaje forense clásico</strong> realizado por un perito documentólogo calificado va mucho más lejos: evalúa el orden de los trazos, la presión del bolígrafo, el ritmo, el temblor y las características microscópicas que las herramientas automatizadas no pueden evaluar de manera confiable. Para informes y registros internos, HandAuth Pro puede generar un manifiesto firmado con el hash de la imagen y metadatos básicos. Esto apoya la verificación de integridad del archivo, pero <em>no</em> equivale a un dictamen forense certificado.',
+      bg_p3:'<strong>HandAuth Pro no es una plataforma SaaS en la nube.</strong> Ofrecemos un flujo de trabajo sencillo de carga de archivos → análisis → informe con control total sobre sus datos. <strong>La integración mediante API en sus sistemas es posible</strong> bajo solicitud y con volumen suficiente (por ejemplo, para bancos, despachos jurídicos o DMS/CRM empresariales). Contáctenos para hablar sobre factibilidad técnica, requisitos y plazos.',
+      bg_p4:'⚠ Esta es información educativa general únicamente — no constituye asesoría legal ni sustituye un peritaje forense profesional. Para procedimientos legalmente vinculantes, consulte siempre a un perito documentólogo calificado y a los profesionales jurídicos correspondientes.',
+      // knowledge center
+      kc_h2:'Materiales educativos y preguntas frecuentes',
+      kc_lead:'Información educativa general sobre el análisis preliminar de firmas, lo que las herramientas automatizadas pueden y no pueden detectar, y cuándo acudir a un perito documentólogo certificado. <strong>Nada de lo siguiente constituye asesoría legal ni una conclusión pericial.</strong>',
+      kc1_h:'Cómo proporcionar buenas muestras de firma de referencia', kc1_sub:'Mejorando la calidad de las muestras para el análisis preliminar.',
+      kc1_p:'Proporcionar imágenes de firma de referencia claras y consistentes mejora la calidad de cualquier verificación automatizada preliminar. Capture escaneos planos y bien iluminados sin sombras, note cualquier variación en las condiciones de firma, y evite recortar los trazos del bolígrafo. Una mejor entrada produce señales preliminares más significativas — pero las referencias de calidad no hacen que el resultado automatizado sea equivalente a un dictamen pericial certificado.',
+      kc2_h:'Cómo interpretar las puntuaciones del análisis preliminar', kc2_sub:'Qué significan los resultados de probabilidad orientativa — y qué no significan.',
+      kc2_p:'Las puntuaciones del análisis automatizado son <em>meramente orientativas</em>. Una puntuación de bajo riesgo no confirma la autenticidad; una puntuación de alto riesgo no prueba la falsificación. Las puntuaciones indican qué casos pueden merecer mayor atención y revisión profesional. Trate siempre los resultados automatizados como señales de triaje, nunca como conclusiones. Cualquier caso con relevancia legal debe ser remitido a un perito documentólogo certificado.',
+      kc3_h:'Qué pueden detectar las herramientas automatizadas — y sus limitaciones', kc3_sub:'Indicadores, visualizaciones y advertencias importantes.',
+      kc3_p:'El análisis automatizado con IA puede detectar artefactos claramente no manuscritos (impresiones, capturas de pantalla, patrones sintéticos) y anomalías estadísticas amplias. Sin embargo, las falsificaciones sutiles elaboradas, la escritura disimulada y muchos casos límite requieren el juicio humano experto. Las visualizaciones y puntuaciones heurísticas son auxiliares educativos — no constituyen análisis forense.',
+      kc4_h:'¿Cuándo debo contratar a un perito documentólogo certificado?', kc4_sub:'Entendiendo cuándo el análisis preliminar no es suficiente.',
+      kc4_p:'Siempre debe contratar a un perito documentólogo certificado cuando: el asunto involucre procedimientos legales, contratos, herencias, alegaciones de fraude o cumplimiento normativo; cuando el análisis preliminar arroje resultados limítrofes o sospechosos; o cuando las consecuencias de un error sean significativas. Las herramientas de IA preliminares como HandAuth Pro son un punto de partida, no una respuesta definitiva.',
+      kc5_h:'Por qué la calidad de la imagen afecta el análisis preliminar', kc5_sub:'Mejores entradas, señales tempranas más confiables.',
+      kc5_p:'Los escaneos claros y de alta resolución ayudan a reducir los falsos positivos en el análisis automatizado. Las imágenes borrosas, de bajo contraste o muy comprimidas limitan lo que cualquier algoritmo puede detectar. Mejorar la calidad de la captura produce señales preliminares más significativas — sin olvidar que ni siquiera las imágenes perfectas pueden hacer que el resultado automatizado sea equivalente al análisis pericial certificado.',
+      kc_warn:'⚠ Esta es información educativa general únicamente. No constituye asesoría legal ni una conclusión pericial.',
+      kc_summary_sub:'Punto clave de todo lo anterior.',
+      kc_summary_p:'El análisis preliminar con IA es un primer paso valioso que puede ahorrar tiempo y dinero al identificar los casos que merecen una investigación más detallada. Sin embargo, tiene limitaciones reales: las herramientas automatizadas no pueden evaluar de forma confiable falsificaciones sutiles elaboradas, no pueden considerar el contexto y no pueden producir conclusiones admisibles ante tribunales. Complemente siempre el análisis preliminar con una revisión humana profesional para cualquier asunto que conlleve riesgo legal, financiero o reputacional.',
+      kc_summary_warn:'⚠ Todos los artículos de esta sección son material educativo general únicamente — no constituyen asesoría legal ni conclusiones forenses periciales. Para cualquier asunto de relevancia legal, consulte a un perito documentólogo certificado y a asesoría jurídica calificada.',
+      // faq
+      faq_h2:'Preguntas frecuentes',
+      faq_lead:'Preguntas comunes de profesionales jurídicos, forenses y financieros que evalúan HandAuth Pro.',
+      faq1_q:'¿Qué tipos de documentos pueden analizarse?',
+      faq1_a:'HandAuth Pro es compatible con una amplia variedad de tipos de documentos que contienen material manuscrito — incluyendo contratos, testamentos, formularios de autorización bancaria, documentos de reclamaciones de seguros, declaraciones de identidad y otros instrumentos firmados. Los documentos pueden enviarse como imágenes escaneadas o archivos PDF.',
+      faq2_q:'¿Es HandAuth Pro adecuado para peritos forenses en caligrafía?',
+      faq2_a:'Sí. HandAuth Pro está diseñado para complementar el flujo de trabajo de los peritos documentólogos calificados, gestionando el análisis preliminar y la extracción de métricas, lo que permite a los especialistas dedicar su tiempo a los casos que requieren juicio pericial. Los resultados del sistema están estructurados para apoyar — no reemplazar — el análisis y los informes forenses certificados.',
+      faq3_q:'¿Puede el sistema operar en entornos seguros o aislados de la red?',
+      faq3_a:'HandAuth Pro no es una plataforma SaaS en la nube. El sistema opera de forma local y no transmite datos de documentos a servidores externos. La implementación en entornos seguros, restringidos o aislados de la red es factible. Las organizaciones con requisitos específicos de soberanía de datos o seguridad pueden contactarnos para hablar sobre las opciones de implementación.',
+      faq4_q:'¿Está disponible la integración mediante API para sistemas empresariales?',
+      faq4_a:'La integración mediante API está disponible bajo solicitud para organizaciones con volumen suficiente y casos de uso apropiados — incluyendo bancos, despachos jurídicos, compañías de seguros y sistemas de gestión documental empresarial. Contáctenos para hablar sobre factibilidad técnica, requisitos de integración y plazos de implementación.',
+      faq5_q:'¿Son los resultados analíticos admisibles como prueba judicial?',
+      faq5_a:'No. Los indicadores analíticos generados por HandAuth Pro son preliminares y solo para fines de triaje interno. No son dictámenes forenses certificados y no son aptos como prueba admisible ante tribunales de forma independiente. Para procedimientos legalmente significativos, los resultados siempre deben ser revisados por un perito documentólogo calificado que pueda proporcionar un dictamen pericial certificable.',
+      faq6_q:'¿Qué formatos de archivo se aceptan?',
+      faq6_a:'El sistema acepta imágenes de documentos escaneados en formatos estándar incluyendo JPEG, PNG, TIFF y PDF. Se recomiendan escaneos de alta resolución (300 DPI o superior) para obtener resultados analíticos óptimos. Los archivos de baja resolución o muy comprimidos pueden limitar el detalle disponible para la extracción y comparación.',
+      // cta
+      cta_h2:'Solicitar una demostración', cta_lead:'Vea cómo HandAuth Pro apoya la comparación caligráfica profesional y el examen de documentos. Le guiaremos por las capacidades del sistema y analizaremos cómo puede integrarse en su flujo de trabajo específico.',
+      cta_pt1:'Recorrido por las funciones analíticas principales', cta_pt2:'Opciones de integración e implementación', cta_pt3:'Revisión de compatibilidad de flujo de trabajo',
+      cta_note:'HandAuth Pro proporciona indicadores analíticos para apoyar la evaluación profesional. Las conclusiones finales siempre deben ser emitidas por peritos calificados en escritura a mano.',
+      // contact form
+      con_h2:'Solicitar análisis preliminar',
+      con_disc_title:'⚠ Lea esto antes de enviar',
+      con_disc_body:'HandAuth Pro proporciona únicamente <strong>análisis preliminar automatizado</strong>. Los resultados son <strong>indicativos y exclusivamente para triaje interno</strong>. No constituyen análisis forense pericial, no son admisibles ante tribunales y no sustituyen el dictamen de un perito documentólogo certificado o grafólogo.',
+      con_lead:'Describa brevemente su situación y adjunte o referencie sus archivos de firma. Le proporcionaremos un resumen preliminar para ayudarle a decidir los próximos pasos.',
+      lbl_name:'Nombre completo', lbl_org:'Organización (opcional)', lbl_email:'Su correo electrónico', lbl_phone:'Teléfono (opcional)', lbl_msg:'Descripción breve de su situación',
+      chk_terms:'Acepto los <a href="https://privacyterms.io/view/ZZT4xTsc-E0FgtAUS-K8fS2C" target="_blank" rel="noopener">Términos de servicio</a>',
+      chk_privacy:'He leído la <a href="https://privacyterms.io/view/vp0ucvM8-O833vpkn-RCXmYa" target="_blank" rel="noopener">Política de privacidad</a>',
+      chk_disclaimer:'Entiendo que HandAuth Pro proporciona <strong>únicamente análisis preliminar automatizado</strong> y que los resultados son meramente indicativos — no constituyen un dictamen forense pericial y no son aptos como prueba judicial sin una revisión pericial certificada.',
+      btn_send:'Enviar',
+      footer_tagline:'Autenticación profesional de escritura a mano y análisis de firmas',
+      footer_disc:'⚠ <strong style="color:#d8e2f0;">Aviso legal:</strong> HandAuth Pro es únicamente una herramienta de análisis preliminar automatizado. Todos los resultados son indicativos y están destinados al triaje interno. No son <strong>dictámenes forenses periciales</strong>, no son <strong>admisibles como prueba judicial</strong> y <strong>no sustituyen</strong> el peritaje de un perito documentólogo certificado o grafólogo. Obtenga siempre una evaluación profesional calificada para asuntos de relevancia legal.',
+      footer_copy:'© 2026 HandAuth Pro — Todos los derechos reservados',
+      footer_dl:'Descargar resumen de muestra',
+      _flag:'🇲🇽', _code:'ES',
     }
   };
 
@@ -3226,7 +3479,8 @@
       fr: 'HandAuth Pro — Contrôle préliminaire des signatures par IA',
       it: 'HandAuth Pro — Screening preliminare AI delle firme',
       cs: 'HandAuth Pro — Předběžné prověření podpisů pomocí AI',
-      nl: 'HandAuth Pro — Voorlopige AI-handtekeningscreening'
+      nl: 'HandAuth Pro — Voorlopige AI-handtekeningscreening',
+      'es-MX': 'HandAuth Pro — Verificación preliminar de firmas con IA'
     };
     document.title = titles[lang] || titles.en;
 
