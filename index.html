@@ -279,6 +279,9 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
       animation: shimmerSlide 4s linear 1.5s infinite;
+      font-style: italic;
+      font-weight: 700;
+      display: inline;
     }
 
     /* ── Scroll-reveal ────────────────────────────────────────── */
@@ -294,26 +297,25 @@
     .reveal-delay-4 { transition-delay: 0.32s; }
     .reveal-delay-5 { transition-delay: 0.40s; }
     .reveal-delay-6 { transition-delay: 0.48s; }
-
-    /* ── Card hover float ─────────────────────────────────────── */
     /* (handled per-component; no global override needed) */
     .hero h1 {
       font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: clamp(2.3rem, 5vw, 3.8rem);
-      font-weight: 600;
-      line-height: 1.15;
+      font-size: clamp(2.8rem, 7vw, 5.2rem);
+      font-weight: 700;
+      line-height: 1.12;
       color: #fff;
-      margin-bottom: var(--sp-md);
+      margin: 0 auto 32px;
+      max-width: 900px;
       word-break: break-word;
       overflow-wrap: break-word;
-      letter-spacing: -0.015em;
-      text-shadow: 0 2px 40px rgba(0,0,0,0.5);
+      letter-spacing: -0.02em;
+      text-shadow: 0 4px 60px rgba(0,0,0,0.6);
     }
     .hero-sub {
       color: rgba(216,226,240,0.88);
-      font-size: clamp(0.98rem, 1.8vw, 1.08rem);
-      line-height: 1.7;
-      max-width: 100%;
+      font-size: clamp(1rem, 1.6vw, 1.1rem);
+      line-height: 1.72;
+      max-width: 680px;
       margin: 0 auto var(--sp-sm);
       word-break: break-word;
       overflow-wrap: break-word;
@@ -322,8 +324,8 @@
     .hero-trust {
       color: var(--accent-gold);
       font-weight: 500;
-      font-size: 0.9rem;
-      letter-spacing: 0.08em;
+      font-size: 0.88rem;
+      letter-spacing: 0.09em;
       text-transform: uppercase;
       margin-bottom: var(--sp-md);
       word-break: break-word;
@@ -437,11 +439,11 @@
       font-family: 'Cormorant Garamond', Georgia, serif;
       color: var(--accent-gold-lt);
       text-align: center;
-      font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+      font-size: clamp(1.65rem, 3.2vw, 2.5rem);
       font-weight: 600;
-      line-height: 1.18;
+      line-height: 1.22;
       margin-bottom: var(--sp-sm);
-      letter-spacing: -0.015em;
+      letter-spacing: -0.01em;
       position: relative;
       display: block;
     }
@@ -459,18 +461,18 @@
       font-family: 'Cormorant Garamond', Georgia, serif;
       font-weight: 600;
       line-height: 1.3;
-      font-size: 1.1rem;
+      font-size: 1.08rem;
     }
     p { margin-bottom: var(--sp-sm); }
     p:last-child { margin-bottom: 0; }
 
     .lead {
       text-align: center;
-      color: rgba(214,225,239,0.78);
-      max-width: 820px;
+      color: rgba(214,225,239,0.8);
+      max-width: 720px;
       margin: 0 auto var(--sp-lg);
-      font-size: 1.02rem;
-      line-height: 1.72;
+      font-size: clamp(0.98rem, 1.5vw, 1.05rem);
+      line-height: 1.75;
       font-weight: 300;
     }
 
@@ -1163,7 +1165,7 @@
       /* Lang dropdown opens downward, aligns to right edge */
       .lang-dropdown { right: 0; left: auto; }
       .hero { padding-top: 80px; padding-bottom: 48px; min-height: auto; }
-      .hero h1 { font-size: clamp(1.7rem, 6vw, 2.4rem); }
+      .hero h1 { font-size: clamp(2.2rem, 8vw, 3.2rem); }
       .hero-content { padding: 0 20px; }
       .section-lead, .section-sub { font-size: 0.97rem; color: rgba(214,225,239,0.9); }
       .form-grid { grid-template-columns: 1fr; }
@@ -1195,7 +1197,7 @@
       .faq-question { padding: 14px 16px; }
       .faq-answer { padding: 0 16px 16px; }
       form { padding: 18px; }
-      .hero h1 { font-size: clamp(1.5rem, 7vw, 2rem); }
+      .hero h1 { font-size: clamp(2rem, 9vw, 2.6rem); }
       .hero-content { padding: 0 12px; }
       .btn { padding: 11px 22px; font-size: 0.88rem; }
     }
@@ -1339,11 +1341,9 @@
     <!-- Hero background: inline SVG illustration — works everywhere, no local files needed -->
     <div class="hero-content">
       <div class="Decision support before sending to forensic expert/div>
-      <h1 id="hero-heading" data-i18n="hero_h1">Professional <span class="hero-highlight">Handwriting Authentication</span> and Signature Analysis</h1>
+      <h1 id="hero-heading" data-i18n="hero_h1" style="font-family:'Cormorant Garamond',Georgia,serif;font-size:4.8rem;font-weight:700;line-height:1.1;color:#fff;margin:0 auto 20px;max-width:900px;letter-spacing:-0.02em;text-shadow:0 4px 60px rgba(0,0,0,0.6);word-break:break-word;">Professional <span style="background:linear-gradient(90deg,#ffe99a,#d4af37,#fff5c0,#c9a84c,#ffe99a);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:italic;font-weight:700;">Handwriting &amp; Digital Signature</span> Authentication</h1>
 
-      <p class="hero-sub" data-i18n="hero_sub">HandAuth Pro assists forensic experts, legal professionals, and financial institutions in analyzing handwritten signatures and identifying structural inconsistencies using advanced handwriting comparison technology.</p>
-
-      <p class="hero-trust" data-i18n="hero_trust">Designed to support expert evaluation — not replace it.</p>
+      <p class="hero-trust" data-i18n="hero_trust">Save time and resources at the initial stage — quickly assess whether a signature warrants further professional investigation.</p>
 
       <div class="notice-box">
         <p class="notice-title" data-i18n="notice_title">⚠ Important Notice</p>
@@ -1351,7 +1351,6 @@
         <p data-i18n="notice_2"></p>
       </div>
 
-      <p data-i18n="hero_save" style="color:#d8e2f0; margin-top:20px; margin-bottom:22px;">Save time and resources at the initial stage — quickly assess whether a signature warrants further professional investigation.</p>
       <div class="hero-cta-group">
         <a href="#cta-demo" class="btn" data-i18n="btn_request">Request</a>
         <a href="#contact" class="btn secondary" data-i18n="btn_contact">Contact Us</a>
@@ -2232,7 +2231,7 @@
       nav_cases:'Use Cases', nav_faq:'FAQ', nav_contact:'Contact',
       nav_terms:'Terms', nav_privacy:'Privacy',
       // hero
-      hero_h1:'Professional Handwriting & Digital Signature Authentication',
+      hero_h1:'Professional <span style="background:linear-gradient(90deg,#ffe99a,#d4af37,#fff5c0,#c9a84c,#ffe99a);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:italic;font-weight:700;">Handwriting &amp; Digital Signature</span> Authentication',
       hero_sub:'HandAuth Pro assists forensic experts, legal professionals, and financial institutions in analyzing handwritten and digital signatures, detecting structural inconsistencies, and identifying potential manipulation using advanced AI-driven comparison technology',
       hero_trust:'Designed to support expert evaluation — not replace it.',
       notice_title:'⚠ Important Notice',
@@ -2370,7 +2369,7 @@
       nav_home:'首頁', nav_features:'功能', nav_how:'運作方式',
       nav_cases:'應用案例', nav_faq:'常見問題', nav_contact:'聯絡我們',
       nav_terms:'條款', nav_privacy:'私隱政策',
-      hero_h1:'專業筆跡認證及簽名分析',
+      hero_h1:'專業 <span style="background:linear-gradient(90deg,#ffe99a,#d4af37,#fff5c0,#c9a84c,#ffe99a);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:italic;font-weight:700;">筆跡與數位簽名</span> 認證',
       hero_sub:'HandAuth Pro 協助法證專家、法律專業人士及金融機構，利用先進的筆跡比對技術分析手寫簽名並識別結構性異常。',
       hero_trust:'旨在輔助專家評估——而非取代。',
       notice_title:'⚠ 重要聲明',
@@ -2477,7 +2476,7 @@
       nav_home:'होम', nav_features:'सुविधाएँ', nav_how:'यह कैसे काम करता है',
       nav_cases:'उपयोग के मामले', nav_faq:'सामान्य प्रश्न', nav_contact:'संपर्क करें',
       nav_terms:'शर्तें', nav_privacy:'गोपनीयता',
-      hero_h1:'व्यावसायिक हस्तलेखन प्रमाणीकरण और हस्ताक्षर विश्लेषण',
+      hero_h1:'व्यावसायिक <span style="background:linear-gradient(90deg,#ffe99a,#d4af37,#fff5c0,#c9a84c,#ffe99a);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:italic;font-weight:700;">हस्तलेखन और डिजिटल हस्ताक्षर</span> प्रमाणीकरण',
       hero_sub:'HandAuth Pro न्यायालयिक विशेषज्ञों, कानूनी पेशेवरों और वित्तीय संस्थाओं को उन्नत हस्तलेखन तुलना तकनीक का उपयोग करके हस्तलिखित हस्ताक्षरों का विश्लेषण करने और संरचनात्मक विसंगतियों की पहचान करने में सहायता करता है।',
       hero_trust:'विशेषज्ञ मूल्यांकन को समर्थन देने के लिए — इसे प्रतिस्थापित करने के लिए नहीं।',
       notice_title:'⚠ महत्वपूर्ण सूचना',
@@ -2584,7 +2583,7 @@
       nav_home:'الرئيسية', nav_features:'المميزات', nav_how:'كيف يعمل',
       nav_cases:'حالات الاستخدام', nav_faq:'الأسئلة الشائعة', nav_contact:'تواصل معنا',
       nav_terms:'الشروط', nav_privacy:'الخصوصية',
-      hero_h1:'المصادقة الاحترافية على خط اليد وتحليل التواقيع',
+      hero_h1:'مصادقة <span style="background:linear-gradient(90deg,#ffe99a,#d4af37,#fff5c0,#c9a84c,#ffe99a);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:italic;font-weight:700;">خط اليد والتوقيع الرقمي</span> الاحترافية',
       hero_sub:'يساعد HandAuth Pro خبراء الطب الشرعي والمهنيين القانونيين والمؤسسات المالية في تحليل التواقيع المكتوبة بخط اليد وتحديد التناقضات الهيكلية باستخدام تقنية مقارنة خط اليد المتقدمة.',
       hero_trust:'مصمم لدعم التقييم المتخصص — لا لاستبداله.',
       notice_title:'⚠ إشعار مهم',
@@ -2691,7 +2690,7 @@
       nav_home:'Startseite', nav_features:'Funktionen', nav_how:'So funktioniert es',
       nav_cases:'Anwendungsfälle', nav_faq:'FAQ', nav_contact:'Kontakt',
       nav_terms:'AGB', nav_privacy:'Datenschutz',
-      hero_h1:'Professionelle Handschriftauthentifizierung und Unterschriftenanalyse',
+      hero_h1:'Professionelle <span style="background:linear-gradient(90deg,#ffe99a,#d4af37,#fff5c0,#c9a84c,#ffe99a);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:italic;font-weight:700;">Handschrift- &amp; Digitalsignatur-</span>Authentifizierung',
       hero_sub:'HandAuth Pro unterstützt Forensikexperten, Rechtsanwälte und Finanzinstitutionen bei der Analyse handgeschriebener Unterschriften und der Identifizierung struktureller Inkonsistenzen mithilfe fortschrittlicher Handschriftvergleichstechnologie.',
       hero_trust:'Konzipiert zur Unterstützung der Expertenbewertung — nicht zu deren Ersatz.',
       notice_title:'⚠ Wichtiger Hinweis',
@@ -2798,7 +2797,7 @@
       nav_home:'ホーム', nav_features:'機能', nav_how:'仕組み',
       nav_cases:'活用事例', nav_faq:'よくある質問', nav_contact:'お問い合わせ',
       nav_terms:'利用規約', nav_privacy:'プライバシー',
-      hero_h1:'専門的な筆跡認証と署名分析',
+      hero_h1:'プロフェッショナルな <span style="background:linear-gradient(90deg,#ffe99a,#d4af37,#fff5c0,#c9a84c,#ffe99a);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:italic;font-weight:700;">筆跡・電子署名</span> 認証',
       hero_sub:'HandAuth Pro は、高度な筆跡比較技術を用いて、手書き署名の分析や構造的な不一致の識別を、法科学専門家・法律専門家・金融機関に提供します。',
       hero_trust:'専門家による評価を支援するために設計されています — 代替するためではありません。',
       notice_title:'⚠ 重要なお知らせ',
@@ -2905,7 +2904,7 @@
       nav_home:'Accueil', nav_features:'Fonctionnalités', nav_how:'Fonctionnement',
       nav_cases:'Cas d\'usage', nav_faq:'FAQ', nav_contact:'Contact',
       nav_terms:'CGU', nav_privacy:'Confidentialité',
-      hero_h1:'Authentification professionnelle d\'écriture et analyse de signatures',
+      hero_h1:'Authentification professionnelle <span style="background:linear-gradient(90deg,#ffe99a,#d4af37,#fff5c0,#c9a84c,#ffe99a);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:italic;font-weight:700;">d\'écriture &amp; signature numérique</span>',
       hero_sub:'HandAuth Pro aide les experts judiciaires, les professionnels du droit et les institutions financières à analyser les signatures manuscrites et à identifier les incohérences structurelles grâce à une technologie avancée de comparaison d\'écriture.',
       hero_trust:'Conçu pour soutenir l\'évaluation des experts — non pour la remplacer.',
       notice_title:'⚠ Avis important',
@@ -3009,7 +3008,7 @@
       nav_home:'Home', nav_features:'Funzionalità', nav_how:'Come funziona',
       nav_cases:'Casi d\'uso', nav_faq:'FAQ', nav_contact:'Contatti',
       nav_terms:'Termini', nav_privacy:'Privacy',
-      hero_h1:'Autenticazione professionale della scrittura e analisi delle firme',
+      hero_h1:'Autenticazione professionale di <span style="background:linear-gradient(90deg,#ffe99a,#d4af37,#fff5c0,#c9a84c,#ffe99a);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:italic;font-weight:700;">scrittura &amp; firma digitale</span>',
       hero_sub:'HandAuth Pro assiste esperti forensi, professionisti legali e istituzioni finanziarie nell\'analisi delle firme manoscritte e nell\'identificazione di incoerenze strutturali mediante tecnologia avanzata di comparazione della scrittura.',
       hero_trust:'Progettato per supportare la valutazione degli esperti — non per sostituirla.',
       notice_title:'⚠ Avviso importante',
@@ -3113,7 +3112,7 @@
       nav_home:'Domů', nav_features:'Funkce', nav_how:'Jak to funguje',
       nav_cases:'Případy použití', nav_faq:'FAQ', nav_contact:'Kontakt',
       nav_terms:'Podmínky', nav_privacy:'Ochrana dat',
-      hero_h1:'Profesionální ověřování rukopisu a analýza podpisů',
+      hero_h1:'Profesionální ověřování <span style="background:linear-gradient(90deg,#ffe99a,#d4af37,#fff5c0,#c9a84c,#ffe99a);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:italic;font-weight:700;">rukopisu &amp; digitálního podpisu</span>',
       hero_sub:'HandAuth Pro pomáhá soudním znalcům, právním odborníkům a finančním institucím analyzovat ručně psané podpisy a identifikovat strukturální nesrovnalosti pomocí pokročilé technologie porovnávání rukopisu.',
       hero_trust:'Navrženo pro podporu expertního hodnocení — nikoli k jeho nahrazení.',
       notice_title:'⚠ Důležité upozornění',
@@ -3217,7 +3216,7 @@
       nav_home:'Home', nav_features:'Functies', nav_how:'Hoe het werkt',
       nav_cases:'Gebruiksscenario\'s', nav_faq:'FAQ', nav_contact:'Contact',
       nav_terms:'Voorwaarden', nav_privacy:'Privacy',
-      hero_h1:'Professionele handschriftauthenticatie en handtekeninganalyse',
+      hero_h1:'Professionele <span style="background:linear-gradient(90deg,#ffe99a,#d4af37,#fff5c0,#c9a84c,#ffe99a);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:italic;font-weight:700;">handschrift- &amp; digitale handtekening</span>authenticatie',
       hero_sub:'HandAuth Pro helpt forensische experts, juridische professionals en financiële instellingen bij het analyseren van handgeschreven handtekeningen en het identificeren van structurele inconsistenties met behulp van geavanceerde handschriftvergelijkingstechnologie.',
       hero_trust:'Ontworpen om expertbeoordeling te ondersteunen — niet te vervangen.',
       notice_title:'⚠ Belangrijke kennisgeving',
@@ -3322,7 +3321,7 @@
       nav_cases:'Casos de uso', nav_faq:'Preguntas frecuentes', nav_contact:'Contacto',
       nav_terms:'Términos', nav_privacy:'Privacidad',
       // hero
-      hero_h1:'Autenticación profesional de escritura a mano y análisis de firmas',
+      hero_h1:'Autenticación profesional de <span style="background:linear-gradient(90deg,#ffe99a,#d4af37,#fff5c0,#c9a84c,#ffe99a);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:italic;font-weight:700;">escritura &amp; firma digital</span>',
       hero_sub:'HandAuth Pro asiste a peritos forenses, profesionales jurídicos e instituciones financieras en el análisis de firmas manuscritas e identificación de inconsistencias estructurales mediante tecnología avanzada de comparación caligráfica.',
       hero_trust:'Diseñado para apoyar la evaluación experta — no para reemplazarla.',
       notice_title:'⚠ Aviso importante',
@@ -3460,10 +3459,15 @@
       const key = el.getAttribute('data-i18n');
       if (t[key] === undefined) return;
       // Use innerHTML for keys that contain HTML tags
-      const htmlKeys = ['notice_1','notice_2','notice_3','notice_4','feat_reminder','cap_note',
+      const htmlKeys = ['hero_h1','notice_1','notice_2','notice_3','notice_4','feat_reminder','cap_note',
         'pro_disclaimer','kc_lead','kc2_p','bg_p2','bg_p3','con_disc_body','chk_terms',
         'chk_privacy','chk_disclaimer','footer_disc','ins_lead','pro_disclaimer'];
-      if (htmlKeys.includes(key)) {
+      if (key === 'hero_h1') {
+        // Always render h1 with guaranteed huge inline styles
+        const raw = t[key]; // already contains <span ...> markup
+        el.style.cssText = "font-family:'Cormorant Garamond',Georgia,serif;font-size:4.8rem;font-weight:700;line-height:1.1;color:#fff;margin:0 auto 32px;max-width:900px;letter-spacing:-0.02em;text-shadow:0 4px 60px rgba(0,0,0,0.6);word-break:break-word;";
+        el.innerHTML = raw;
+      } else if (htmlKeys.includes(key)) {
         el.innerHTML = t[key];
       } else {
         el.textContent = t[key];
