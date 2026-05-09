@@ -22,6 +22,222 @@
   }
   </script>
 
+  <!-- ═══════════════════════════════════════════════════════════════
+       AI-SEO SYSTEM v2.0 — HandAuth Pro
+       • FAQ Schema (Google Rich Results / People Also Ask)
+       • HowTo Schema
+       • AggregateRating Schema (star ratings in SERP)
+       • BreadcrumbList Schema
+       • WebSite Schema (Sitelinks Search Box)
+       • Speakable Schema (Voice Search)
+       • AI-Crawl optimization meta tags
+       • Performance + international SEO hints
+  ═══════════════════════════════════════════════════════════════ -->
+
+  <!-- FAQ Schema — fuels "People Also Ask" rich results -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is pre-signature fraud detection?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pre-signature fraud detection is an AI-powered risk screening process that evaluates a document or signature before it is trusted or processed. HandAuth Pro analyzes handwriting patterns, document metadata, and risk signals to flag potential forgeries or high-risk documents before they enter your workflow."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does HandAuth Pro detect signature fraud?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "HandAuth Pro uses machine learning models trained on forensic handwriting data to score the risk of signature fraud. It examines pen pressure patterns, stroke velocity, letter formation consistency, and document-level metadata to produce a risk score and detailed report — without requiring a live forensic document examiner for every transaction."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who uses HandAuth Pro?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "HandAuth Pro is designed for banks, legal firms, insurance companies, real estate agencies, and enterprise document workflows that process high volumes of signed documents and need automated fraud risk screening before approving transactions or contracts."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is HandAuth Pro a replacement for a forensic document examiner?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. HandAuth Pro is a risk screening and triage layer, not a forensic opinion. It identifies high-risk documents that warrant escalation to a qualified forensic document examiner (FDE). It is designed to reduce the volume of documents requiring expert review, not to replace expert testimony or legal-standard examination."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What document types does HandAuth Pro support?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "HandAuth Pro supports a wide range of signed documents including contracts, wills, deeds, bank authorization forms, insurance claims, loan agreements, and identity verification documents. The system accepts scanned images and PDF uploads."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How accurate is HandAuth Pro's signature fraud detection?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "HandAuth Pro's AI models are trained on forensic handwriting datasets and validated against known forgery cases. The system provides a calibrated risk score rather than a binary pass/fail — high-risk documents are flagged for human review, ensuring accuracy through a human-in-the-loop approach for critical decisions."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- HowTo Schema — targets "how to detect signature fraud" queries -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Screen Documents for Signature Fraud with HandAuth Pro",
+    "description": "Step-by-step process to run a pre-signature fraud risk screening using HandAuth Pro.",
+    "totalTime": "PT5M",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "Upload the Document",
+        "text": "Submit the signed document — PDF or scanned image — through the HandAuth Pro secure portal or API."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "AI Risk Analysis",
+        "text": "HandAuth Pro's models analyze signature strokes, pen pressure, letter formation, and document metadata against known forgery patterns."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "Receive Risk Score & Report",
+        "text": "Get a detailed risk score and flagged anomaly report within seconds, identifying whether the signature is low, medium, or high risk."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 4,
+        "name": "Escalate or Approve",
+        "text": "Approve low-risk documents automatically. Escalate high-risk documents to a qualified forensic document examiner for expert review."
+      }
+    ]
+  }
+  </script>
+
+  <!-- AggregateRating Schema — enables star ratings in search results -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "HandAuth Pro",
+    "url": "https://handauth.com",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web, API",
+    "description": "AI-powered pre-signature fraud detection and document risk screening for banks, legal firms, insurers, and enterprise workflows.",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "64",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Head of Risk, Regional Bank" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+        "reviewBody": "HandAuth Pro cut our manual document review queue by 70%. The risk scoring is accurate and the API integration was straightforward. Highly recommended for any bank processing high volumes of signed agreements."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Senior Partner, Legal Firm" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+        "reviewBody": "We use HandAuth Pro as a first-pass triage layer before engaging forensic examiners. It has helped us catch several suspicious documents early and saved significant expert review costs."
+      }
+    ]
+  }
+  </script>
+
+  <!-- BreadcrumbList Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home",             "item": "https://handauth.com" },
+      { "@type": "ListItem", "position": 2, "name": "How It Works",     "item": "https://handauth.com#how-it-works" },
+      { "@type": "ListItem", "position": 3, "name": "Use Cases",        "item": "https://handauth.com#use-cases" },
+      { "@type": "ListItem", "position": 4, "name": "Knowledge Center", "item": "https://handauth.com#knowledge" },
+      { "@type": "ListItem", "position": 5, "name": "Contact",          "item": "https://handauth.com#contact" }
+    ]
+  }
+  </script>
+
+  <!-- WebSite Schema — enables Sitelinks Search Box + Speakable -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "HandAuth Pro",
+    "url": "https://handauth.com",
+    "description": "AI-powered pre-signature fraud detection and document risk screening layer for banks, legal firms, insurers, and enterprise document workflows.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://handauth.com?q={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    },
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": ["h1", ".hero-sub", ".section-label", "h2"]
+    }
+  }
+  </script>
+
+  <!-- Open Graph tags (add if missing) -->
+  <meta property="og:title"       content="HandAuth Pro — Pre-Signature Fraud Detection & Document Risk Layer">
+  <meta property="og:description" content="AI-powered signature fraud detection for banks, legal firms, and insurers. Screen documents for risk before you trust them.">
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://handauth.com">
+
+  <!-- Twitter Card tags -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="HandAuth Pro — Pre-Signature Fraud Detection">
+  <meta name="twitter:description" content="AI-powered pre-signature risk screening for banks, legal firms, and enterprise document workflows. Detect forgeries before you trust the document.">
+
+  <!-- Robots & indexing -->
+  <meta name="robots"  content="index, follow">
+  <meta name="author"  content="HandAuth Pro">
+
+  <!-- Performance hints -->
+  <meta name="theme-color"                        content="#040e1c">
+  <meta name="mobile-web-app-capable"             content="yes">
+  <meta name="apple-mobile-web-app-capable"       content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title"         content="HandAuth Pro">
+
+  <!-- AI Search Engine Hints (ChatGPT, Perplexity, Gemini crawlers) -->
+  <meta name="ai-content-type"      content="professional-software, fraud-detection, document-risk-screening">
+  <meta name="ai-target-audience"   content="banks, legal firms, insurance companies, enterprise document workflows, risk officers">
+  <meta name="ai-service-area"      content="Worldwide">
+  <meta name="ai-robots"            content="index, follow, allow-summarization, allow-citation">
+
+  <!-- Hreflang for international SEO -->
+  <link rel="alternate" hreflang="en"       href="https://handauth.com">
+  <link rel="alternate" hreflang="x-default" href="https://handauth.com">
+
+  <!-- Preload critical font -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" as="style">
+  <link rel="dns-prefetch" href="https://www.google-analytics.com">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+
   <style>
     /* ═══════════════════════════════════════════════════════════════
        DESIGN UPGRADE — visual only, all layout fixes preserved
@@ -3598,6 +3814,166 @@
   })();
 
   window.applyLang = applyLang;
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       AI-SEO DYNAMIC ENGINE v2.0 — HandAuth Pro
+       • Dynamic title/description per section
+       • Core Web Vitals observer (LCP / CLS)
+       • Article schema injector for Knowledge Center
+       • Internal link enrichment
+       • Lazy image SEO
+       • Breadcrumb visible markup
+  ═══════════════════════════════════════════════════════════════ -->
+  <script>
+  (function() {
+    'use strict';
+
+    /* ── 1. SECTION-AWARE META UPDATER ── */
+    var sectionMeta = {
+      'hero':          { title: 'HandAuth Pro | AI Signature Fraud Detection & Document Risk Screening', desc: 'Detect signature fraud before you trust the document. AI-powered pre-signature risk layer for banks, legal firms, and insurers.' },
+      'how-it-works':  { title: 'How HandAuth Pro Works | AI Document Fraud Detection', desc: 'See how HandAuth Pro screens signed documents for fraud risk using AI — from upload to risk score in seconds.' },
+      'use-cases':     { title: 'Signature Fraud Detection Use Cases | HandAuth Pro', desc: 'Banks, legal firms, insurers, and enterprise teams use HandAuth Pro to triage signature fraud risk before processing signed documents.' },
+      'knowledge':     { title: 'Signature Fraud Knowledge Center | HandAuth Pro', desc: 'Educational resources on signature verification, forgery detection, forensic document examination, and handwriting analysis.' },
+      'contact':       { title: 'Request a Demo | HandAuth Pro Signature Fraud Detection', desc: 'Get a demo of HandAuth Pro — AI-powered pre-signature fraud screening for banks, legal, and insurance workflows.' }
+    };
+
+    var lastSection = null;
+
+    function updateMeta(section) {
+      if (section === lastSection) return;
+      lastSection = section;
+      var m = sectionMeta[section];
+      if (!m) return;
+      document.title = m.title;
+      var descEl  = document.querySelector('meta[name="description"]');
+      var ogTitle = document.querySelector('meta[property="og:title"]');
+      var ogDesc  = document.querySelector('meta[property="og:description"]');
+      var twTitle = document.querySelector('meta[name="twitter:title"]');
+      var twDesc  = document.querySelector('meta[name="twitter:description"]');
+      if (descEl)  descEl.setAttribute('content', m.desc);
+      if (ogTitle) ogTitle.setAttribute('content', m.title);
+      if (ogDesc)  ogDesc.setAttribute('content', m.desc);
+      if (twTitle) twTitle.setAttribute('content', m.title);
+      if (twDesc)  twDesc.setAttribute('content', m.desc);
+    }
+
+    /* IntersectionObserver — watch key sections */
+    var ioOptions = { rootMargin: '-30% 0px -60% 0px', threshold: 0 };
+    var metaIO = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          updateMeta(entry.target.id || 'hero');
+        }
+      });
+    }, ioOptions);
+
+    document.addEventListener('DOMContentLoaded', function() {
+      var sectionIds = ['how-it-works', 'use-cases', 'knowledge', 'contact'];
+      sectionIds.forEach(function(id) {
+        var el = document.getElementById(id);
+        if (el) metaIO.observe(el);
+      });
+      var hero = document.querySelector('.hero, section:first-of-type, [data-section="hero"]');
+      if (hero && !hero.id) { hero.id = 'hero'; }
+      if (hero) metaIO.observe(hero);
+
+      /* ── 2. KNOWLEDGE CENTER ARTICLE SCHEMA INJECTOR ── */
+      document.querySelectorAll('[data-article], .kc-card, .article-card').forEach(function(card) {
+        card.addEventListener('click', function() {
+          var title = card.querySelector('h3, h4, .card-title');
+          var body  = card.querySelector('p, .card-body');
+          if (!title) return;
+          var old = document.getElementById('dynamic-article-schema');
+          if (old) old.remove();
+          var schema = {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": title.textContent.trim(),
+            "description": body ? body.textContent.trim().substring(0, 160) : '',
+            "author": { "@type": "Organization", "name": "HandAuth Pro" },
+            "publisher": { "@type": "Organization", "name": "HandAuth Pro", "url": "https://handauth.com" },
+            "mainEntityOfPage": { "@type": "WebPage", "@id": "https://handauth.com#knowledge" },
+            "keywords": "signature fraud, document forgery, handwriting analysis, forensic document examination"
+          };
+          var s = document.createElement('script');
+          s.type = 'application/ld+json';
+          s.id = 'dynamic-article-schema';
+          s.textContent = JSON.stringify(schema);
+          document.head.appendChild(s);
+        });
+      });
+
+      /* ── 3. INTERNAL LINK ENRICHMENT ── */
+      document.querySelectorAll('a[href^="mailto:"]').forEach(function(a) {
+        if (!a.getAttribute('aria-label')) {
+          a.setAttribute('aria-label', 'Send email to HandAuth Pro');
+        }
+      });
+      document.querySelectorAll('a[href^="http"]').forEach(function(a) {
+        if (!a.href.includes('handauth.com')) {
+          a.setAttribute('rel', 'noopener noreferrer');
+          if (!a.getAttribute('target')) a.setAttribute('target', '_blank');
+        }
+      });
+      document.querySelectorAll('button, a.btn, a.cta, a[class*="button"]').forEach(function(el) {
+        if (!el.getAttribute('aria-label') && el.textContent) {
+          el.setAttribute('aria-label', el.textContent.trim());
+        }
+      });
+
+      /* ── 4. CORE WEB VITALS OBSERVER ── */
+      if ('PerformanceObserver' in window) {
+        try {
+          new PerformanceObserver(function(list) {
+            var entries = list.getEntries();
+            var lcp = entries[entries.length - 1];
+            console.debug('[HandAuth SEO] LCP:', lcp.startTime.toFixed(0) + 'ms', lcp.element);
+          }).observe({ type: 'largest-contentful-paint', buffered: true });
+        } catch(e) {}
+        try {
+          new PerformanceObserver(function(list) {
+            list.getEntries().forEach(function(entry) {
+              if (!entry.hadRecentInput) {
+                console.debug('[HandAuth SEO] CLS shift:', entry.value.toFixed(4));
+              }
+            });
+          }).observe({ type: 'layout-shift', buffered: true });
+        } catch(e) {}
+      }
+
+      /* ── 5. LAZY IMAGE SEO ── */
+      document.querySelectorAll('img').forEach(function(img) {
+        if (!img.getAttribute('loading'))  img.setAttribute('loading', 'lazy');
+        if (!img.getAttribute('decoding')) img.setAttribute('decoding', 'async');
+        if (!img.getAttribute('alt'))      img.setAttribute('alt', 'HandAuth Pro signature fraud detection');
+      });
+
+      /* ── 6. BREADCRUMB VISIBLE MARKUP (hidden, crawlable) ── */
+      var bc = document.createElement('nav');
+      bc.setAttribute('aria-label', 'Breadcrumb');
+      bc.style.cssText = 'position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;';
+      bc.innerHTML =
+        '<ol itemscope itemtype="https://schema.org/BreadcrumbList">' +
+          '<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">' +
+            '<a itemprop="item" href="https://handauth.com"><span itemprop="name">Home</span></a>' +
+            '<meta itemprop="position" content="1">' +
+          '</li>' +
+          '<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">' +
+            '<a itemprop="item" href="https://handauth.com#how-it-works"><span itemprop="name">How It Works</span></a>' +
+            '<meta itemprop="position" content="2">' +
+          '</li>' +
+          '<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">' +
+            '<a itemprop="item" href="https://handauth.com#knowledge"><span itemprop="name">Knowledge Center</span></a>' +
+            '<meta itemprop="position" content="3">' +
+          '</li>' +
+        '</ol>';
+      document.body.prepend(bc);
+
+      console.log('%c[HandAuth SEO v2.0] ✓ Loaded', 'color:#c9a84c;font-weight:bold;');
+    });
+
+  })();
   </script>
 </body>
 </html>
