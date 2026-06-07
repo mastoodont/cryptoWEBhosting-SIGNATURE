@@ -1,0 +1,30 @@
+User-agent: *
+Allow: /
+
+# AI crawlers — allow full indexing and citation
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Omgilibot
+Allow: /
+
+# Sitemap
+Sitemap: https://handauth.com/sitemap.xml

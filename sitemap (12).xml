@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- English (default) -->
+  <url>
+    <loc>https://handauth.com/</loc>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://handauth.com/"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://handauth.com/"/>
+    <xhtml:link rel="alternate" hreflang="ru"        href="https://handauth.com/?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="he"        href="https://handauth.com/?lang=he"/>
+    <xhtml:link rel="alternate" hreflang="ar"        href="https://handauth.com/?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://handauth.com/?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://handauth.com/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="es-MX"    href="https://handauth.com/?lang=es-MX"/>
+    <xhtml:link rel="alternate" hreflang="it"        href="https://handauth.com/?lang=it"/>
+    <xhtml:link rel="alternate" hreflang="ja"        href="https://handauth.com/?lang=ja"/>
+    <xhtml:link rel="alternate" hreflang="hi"        href="https://handauth.com/?lang=hi"/>
+    <xhtml:link rel="alternate" hreflang="zh-HK"    href="https://handauth.com/?lang=zh-HK"/>
+    <xhtml:link rel="alternate" hreflang="nl"        href="https://handauth.com/?lang=nl"/>
+    <xhtml:link rel="alternate" hreflang="cs"        href="https://handauth.com/?lang=cs"/>
+    <xhtml:link rel="alternate" hreflang="uk"        href="https://handauth.com/?lang=uk"/>
+    <xhtml:link rel="alternate" hreflang="pl"        href="https://handauth.com/?lang=pl"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR"    href="https://handauth.com/?lang=pt-BR"/>
+    <xhtml:link rel="alternate" hreflang="ko"        href="https://handauth.com/?lang=ko"/>
+    <xhtml:link rel="alternate" hreflang="tr"        href="https://handauth.com/?lang=tr"/>
+    <xhtml:link rel="alternate" hreflang="vi"        href="https://handauth.com/?lang=vi"/>
+    <xhtml:link rel="alternate" hreflang="id"        href="https://handauth.com/?lang=id"/>
+    <xhtml:link rel="alternate" hreflang="th"        href="https://handauth.com/?lang=th"/>
+  </url>
+
+</urlset>
