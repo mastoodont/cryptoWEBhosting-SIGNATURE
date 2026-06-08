@@ -35,11 +35,34 @@
   <!-- Sitemap -->
   <link rel="sitemap" type="application/xml" href="https://handauth.com/sitemap.xml">
 
+  <!--
+    ═══════════════════════════════════════════════════════════════════
+    MULTILINGUAL SEO NOTE FOR CRAWLERS
+    This page serves all language variants via JS (query param ?lang=xx).
+    Each hreflang URL above resolves to this same HTML document; the
+    correct language is activated client-side.  The meta title/description
+    and og:* tags are updated by applyLang() on every language switch.
+    Key localised terms for major markets are listed below for reference
+    by AI and search crawlers that process page source directly:
+
+    RU — проверка подписи AI, обнаружение подделки подписи, верификация
+         подписи онлайн, анализ почерка ИИ, подлинность подписи, мошенничество
+         с подписью, экспертиза подписи, скрининг рисков документов
+
+    HE — זיהוי זיוף חתימה, אימות חתימה AI, בדיקת אותנטיות חתימה,
+         סינון סיכוני חתימה, חתימה מזויפת בצוואה, ניתוח כתב יד מחשב
+
+    DE — Unterschrift Fälschung erkennen, Unterschriftenauthentizität KI,
+         Handschriftenanalyse Software, Dokumentenbetrug erkennen,
+         gefälschte Unterschrift Testament, forensische Unterschriftenprüfung
+    ═══════════════════════════════════════════════════════════════════
+  -->
+
   <!-- Open Graph -->
   <meta property="og:title"       content="HandAuth Pro — AI Signature Fraud Detection">
   <meta property="og:description" content="Instant risk screening for private individuals, lawyers, and enterprise integrators. Detect signature fraud before you trust the document.">
   <meta property="og:type"        content="website">
-  <meta property="og:url"         content="https://handauth.com">
+  <meta property="og:url"         content="https://handauth.com/">
   <meta property="og:image"       content="https://handauth.com/og-image.jpg">
   <meta property="og:locale"      content="en_US">
   <meta property="og:site_name"   content="HandAuth Pro">
@@ -450,7 +473,25 @@
 </head>
 <body>
 
-<header id="header">
+<!-- ═══ MULTILINGUAL SEO CONTENT (screen-reader & crawler accessible) ══════
+     These sections contain localised descriptive text for the three priority
+     markets (Russian, Hebrew, German).  They are visually hidden but remain
+     accessible to search crawlers and screen-readers.
+     ══════════════════════════════════════════════════════════════════════ -->
+<div style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;" aria-hidden="true" lang="ru">
+  <h2>Проверка подлинности подписи с помощью AI — HandAuth Pro</h2>
+  <p>HandAuth Pro — инструмент обнаружения подделки подписи на основе искусственного интеллекта. Быстрый скрининг рисков для частных лиц, адвокатов и корпоративных интеграторов. Верификация подписи онлайн: анализ почерка, оценка риска мошенничества с подписью, экспертиза подлинности документа. Определите поддельную подпись в завещании, договоре или доверенности до обращения к судебному эксперту. API проверки подписей для банков, страховых компаний и DMS-платформ. Скрининг рисков документов без передачи данных внешним серверам.</p>
+</div>
+<div style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;" aria-hidden="true" lang="he" dir="rtl">
+  <h2>זיהוי זיוף חתימה בבינה מלאכותית — HandAuth Pro</h2>
+  <p>HandAuth Pro הוא כלי לזיהוי זיוף חתימה המבוסס על בינה מלאכותית. סינון סיכונים מיידי לאנשים פרטיים, עורכי דין ואינטגרטורים ארגוניים. אימות חתימה מקוון: ניתוח כתב יד, הערכת סיכון לזיוף חתימה, בדיקת אותנטיות מסמך. זיהוי חתימה מזויפת בצוואה, חוזה או ייפוי כוח לפני פנייה למומחה פורנזי. API לאימות חתימות לבנקים, חברות ביטוח ופלטפורמות DMS. סינון סיכוני מסמכים ללא העברת נתונים לשרתים חיצוניים.</p>
+</div>
+<div style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;" aria-hidden="true" lang="de">
+  <h2>KI-Unterschriftenfälschung erkennen — HandAuth Pro</h2>
+  <p>HandAuth Pro ist ein KI-gestütztes Tool zur Erkennung von Unterschriftenfälschungen. Sofortiges Risikoscreening für Privatpersonen, Rechtsanwälte und Enterprise-Integratoren. Unterschrift online verifizieren: Handschriftenanalyse, Risikobewertung für Unterschriftenbetrug, Echtheitsprüfung von Dokumenten. Gefälschte Unterschrift in Testament, Vertrag oder Vollmacht erkennen, bevor ein forensischer Gutachter beauftragt wird. API zur Unterschriftenprüfung für Banken, Versicherungen und DMS-Plattformen. Dokumentenrisiko-Screening ohne Übertragung von Daten an externe Server.</p>
+</div>
+
+
   <div class="container header-inner">
     <a class="logo" href="#home" aria-label="HandAuth Pro home">
       <svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" style="width:40px;height:40px;flex-shrink:0;" aria-hidden="true">
@@ -1402,10 +1443,66 @@ const stubs = {
 };
 Object.keys(stubs).forEach(k => { T[k] = Object.assign({}, T.en, stubs[k]); });
 
+// ─── Per-language SEO meta (title / description / keywords) ───────────────
+// Ensures Google and AI crawlers see localised <title> and <meta> on JS render
+const SEO_META = {
+  en: {
+    title: 'HandAuth Pro — AI Signature Fraud Detection for Individuals, Lawyers & Integrators',
+    desc:  'HandAuth Pro: AI-powered signature fraud detection. Instant risk screening for private individuals, legal professionals, and enterprise API integrators. Detect forgeries before you trust the document.',
+    kw:    'signature fraud detection, handwriting verification AI, document forgery detection, signature authentication API, legal document screening, lawyer signature tool, signature risk score, handwriting analysis software, document fraud prevention API, pre-signature screening',
+  },
+  ru: {
+    title: 'HandAuth Pro — AI-проверка подлинности подписи для физлиц, юристов и интеграторов',
+    desc:  'HandAuth Pro: AI-инструмент обнаружения подделки подписи. Быстрый скрининг рисков для частных лиц, адвокатов и корпоративных интеграторов. Определите фальсификацию документа до принятия решения.',
+    kw:    'проверка подписи AI, обнаружение подделки подписи, верификация подписи онлайн, анализ почерка искусственный интеллект, подлинность подписи документа, мошенничество с подписью, экспертиза подписи, API проверки документов, поддельная подпись завещание, скрининг рисков документов',
+  },
+  he: {
+    title: 'HandAuth Pro — זיהוי זיוף חתימה בבינה מלאכותית לאנשים פרטיים, עורכי דין ומשלבים',
+    desc:  'HandAuth Pro: זיהוי זיוף חתימה מבוסס AI. סינון סיכונים מיידי לאנשים פרטיים, עורכי דין ואינטגרטורים ארגוניים. זהה זיופים לפני שאתה סומך על המסמך.',
+    kw:    'זיהוי זיוף חתימה, אימות חתימה AI, בינה מלאכותית זיוף מסמכים, בדיקת אותנטיות חתימה, סינון סיכוני חתימה, API אימות מסמכים, חתימה מזויפת בצוואה, כלי לעורכי דין בדיקת חתימה, ניתוח כתב יד מחשב, זיהוי מסמך מזויף',
+  },
+  de: {
+    title: 'HandAuth Pro — KI-Unterschriftenbetrug-Erkennung für Privatpersonen, Anwälte & Integratoren',
+    desc:  'HandAuth Pro: KI-gestützte Erkennung von Unterschriftenfälschungen. Sofortiges Risikoscreening für Privatpersonen, Rechtsanwälte und Unternehmensintegratoren. Fälschungen erkennen, bevor Sie dem Dokument vertrauen.',
+    kw:    'Unterschrift Fälschung erkennen, Unterschriftenauthentizität prüfen KI, Handschriftenanalyse Software, Dokumentenbetrug KI, Unterschrift verifizieren online, gefälschte Unterschrift Testament, API Unterschriftenprüfung, Risikoscreening Dokumente, forensische Unterschriftenprüfung, Anwalt Unterschrift Tool',
+  },
+  ar: {
+    title: 'HandAuth Pro — كشف تزوير التوقيع بالذكاء الاصطناعي للأفراد والمحامين والمدمجين',
+    desc:  'HandAuth Pro: كشف تزوير التوقيع بالذكاء الاصطناعي. فحص فوري للمخاطر للأفراد والمهنيين القانونيين ومدمجي API. اكتشف التزويرات قبل الوثوق بالمستند.',
+    kw:    'كشف تزوير التوقيع, التحقق من صحة التوقيع AI, تحليل الخط بالذكاء الاصطناعي, API التحقق من المستندات, فحص مخاطر التوقيع, وثيقة مزورة كشف, توقيع مزور في الوصية, أداة للمحامين فحص توقيع, تزوير الوثائق الكترونياً',
+  },
+  fr: {
+    title: "HandAuth Pro — Détection IA de fraude à la signature pour particuliers, avocats et intégrateurs",
+    desc:  "HandAuth Pro : détection IA de fraude à la signature. Screening de risque instantané pour particuliers, professionnels juridiques et intégrateurs API. Détectez les falsifications avant de faire confiance au document.",
+    kw:    "détection fraude signature, vérification signature IA, analyse écriture manuscrite, API authentification signature, dépistage risque document, fausse signature testament, outil avocat signature, logiciel détection contrefaçon, intelligence artificielle document juridique",
+  },
+};
+// Fallback to EN for unlisted languages
+function getSeoMeta(lang) { return SEO_META[lang] || SEO_META.en; }
+
 function applyLang(lang) {
   const t = T[lang] || T.en;
   document.documentElement.lang = lang;
   document.documentElement.dir = t._dir || 'ltr';
+  // ── Update <title> and <meta> for SEO / AI crawlers ──
+  const seo = getSeoMeta(lang);
+  document.title = seo.title;
+  const descEl = document.querySelector('meta[name="description"]');
+  if (descEl) descEl.setAttribute('content', seo.desc);
+  const kwEl = document.querySelector('meta[name="keywords"]');
+  if (kwEl) kwEl.setAttribute('content', seo.kw);
+  const ogTitle = document.querySelector('meta[property="og:title"]');
+  if (ogTitle) ogTitle.setAttribute('content', seo.title);
+  const ogDesc = document.querySelector('meta[property="og:description"]');
+  if (ogDesc) ogDesc.setAttribute('content', seo.desc);
+  const twTitle = document.querySelector('meta[name="twitter:title"]');
+  if (twTitle) twTitle.setAttribute('content', seo.title);
+  const twDesc = document.querySelector('meta[name="twitter:description"]');
+  if (twDesc) twDesc.setAttribute('content', seo.desc);
+  // ── Hreflang: update og:locale per language ──
+  const ogLocale = document.querySelector('meta[property="og:locale"]');
+  const localeMap = { en:'en_US', ru:'ru_RU', he:'he_IL', ar:'ar_AE', de:'de_DE', fr:'fr_FR', 'es-MX':'es_MX', it:'it_IT', ja:'ja_JP', hi:'hi_IN', 'zh-HK':'zh_HK', nl:'nl_NL', cs:'cs_CZ', uk:'uk_UA', pl:'pl_PL', 'pt-BR':'pt_BR', ko:'ko_KR', tr:'tr_TR', vi:'vi_VN', id:'id_ID', th:'th_TH' };
+  if (ogLocale) ogLocale.setAttribute('content', localeMap[lang] || 'en_US');
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
     if (t[key] !== undefined) el.innerHTML = t[key];
