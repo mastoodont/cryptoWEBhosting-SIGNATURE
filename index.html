@@ -244,7 +244,7 @@
     .lang-btn:hover { border-color:rgba(201,168,76,.4); background:rgba(201,168,76,.07); }
     .lang-arrow { font-size:.65rem; color:var(--muted); transition:transform .2s; }
     .lang-dropdown {
-      position:absolute; right:0; top:calc(100% + 8px);
+      position:fixed; right:20px; top:64px;
       background:rgba(6,18,34,.97); border:1px solid rgba(201,168,76,.18);
       border-radius:12px; min-width:200px; box-shadow:0 16px 48px rgba(0,0,0,.55);
       display:none; z-index:9999; overflow:hidden;
@@ -793,18 +793,7 @@
           <input id="email" name="email" type="email" placeholder="you@example.com" required>
           <div class="field-error" id="err-email" style="display:none;"></div>
         </div>
-        <div class="form-row">
-          <label for="role" data-i18n="lbl_role">I am a…</label>
-          <select id="role" name="role" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.10);border-radius:8px;padding:10px 14px;font-size:.93rem;color:var(--text);font-family:inherit;width:100%;appearance:none;">
-            <option value="" data-i18n="role_sel">Select…</option>
-            <option value="individual" data-i18n="role_ind">Private individual</option>
-            <option value="lawyer" data-i18n="role_law">Lawyer / legal professional</option>
-            <option value="integrator" data-i18n="role_int">Developer / enterprise integrator</option>
-            <option value="bank" data-i18n="role_bank">Bank / financial institution</option>
-            <option value="insurance" data-i18n="role_ins">Insurance company</option>
-            <option value="other" data-i18n="role_oth">Other</option>
-          </select>
-        </div>
+
       </div>
 
       <div class="form-row" style="margin-bottom:20px;">
@@ -910,10 +899,9 @@ form.addEventListener('submit', function(e) {
   const name = document.getElementById('name').value.trim();
   const email = document.getElementById('email').value.trim();
   const org = document.getElementById('org').value.trim();
-  const role = document.getElementById('role').value;
   const msg = document.getElementById('message').value.trim();
   const subj = `HandAuth Pro inquiry from ${name}`;
-  const body = `Name: ${name}\nEmail: ${email}\nOrg: ${org}\nRole: ${role}\n\nMessage:\n${msg}`;
+  const body = `Name: ${name}\nEmail: ${email}\nOrg: ${org}\n\nMessage:\n${msg}`;
   window.location.href = `mailto:info@handauth.com?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(body)}`;
   document.getElementById('formStatus').textContent = 'Your email client has been opened — please send the message.';
   form.reset(); submitBtn.disabled = true;
